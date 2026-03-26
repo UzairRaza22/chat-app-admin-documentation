@@ -1,0 +1,25 @@
+{
+  "id": "admin/workspaces",
+  "title": "Workspace Management",
+  "description": "Base URL",
+  "source": "@site/docs/admin/workspaces.md",
+  "sourceDirName": "admin",
+  "slug": "/admin/workspaces",
+  "permalink": "/docs/admin/workspaces",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Workspaces"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Impersonate",
+    "permalink": "/docs/admin/impersonate"
+  },
+  "next": {
+    "title": "Messages",
+    "permalink": "/docs/admin/messages"
+  }
+}

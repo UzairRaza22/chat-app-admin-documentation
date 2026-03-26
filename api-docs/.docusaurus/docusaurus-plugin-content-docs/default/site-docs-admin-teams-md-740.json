@@ -1,0 +1,25 @@
+{
+  "id": "admin/teams",
+  "title": "Team Management",
+  "description": "Base URL",
+  "source": "@site/docs/admin/teams.md",
+  "sourceDirName": "admin",
+  "slug": "/admin/teams",
+  "permalink": "/docs/admin/teams",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Teams"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Messages",
+    "permalink": "/docs/admin/messages"
+  },
+  "next": {
+    "title": "Users",
+    "permalink": "/docs/admin/users"
+  }
+}

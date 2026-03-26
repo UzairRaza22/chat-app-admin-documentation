@@ -1,0 +1,25 @@
+{
+  "id": "admin/users",
+  "title": "User Management",
+  "description": "Base URL",
+  "source": "@site/docs/admin/users.md",
+  "sourceDirName": "admin",
+  "slug": "/admin/users",
+  "permalink": "/docs/admin/users",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Users"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Teams",
+    "permalink": "/docs/admin/teams"
+  },
+  "next": {
+    "title": "Technical Appendices",
+    "permalink": "/docs/admin/general"
+  }
+}

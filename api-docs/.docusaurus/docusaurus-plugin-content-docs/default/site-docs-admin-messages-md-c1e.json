@@ -1,0 +1,25 @@
+{
+  "id": "admin/messages",
+  "title": "Message Management",
+  "description": "Base URL",
+  "source": "@site/docs/admin/messages.md",
+  "sourceDirName": "admin",
+  "slug": "/admin/messages",
+  "permalink": "/docs/admin/messages",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Messages"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Workspaces",
+    "permalink": "/docs/admin/workspaces"
+  },
+  "next": {
+    "title": "Teams",
+    "permalink": "/docs/admin/teams"
+  }
+}

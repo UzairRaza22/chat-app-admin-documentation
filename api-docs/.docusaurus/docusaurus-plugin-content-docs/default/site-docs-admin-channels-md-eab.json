@@ -1,0 +1,25 @@
+{
+  "id": "admin/channels",
+  "title": "Channel Management",
+  "description": "Base URL",
+  "source": "@site/docs/admin/channels.md",
+  "sourceDirName": "admin",
+  "slug": "/admin/channels",
+  "permalink": "/docs/admin/channels",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "sidebar_label": "Channels"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Authentication",
+    "permalink": "/docs/admin/authentication"
+  },
+  "next": {
+    "title": "Impersonate",
+    "permalink": "/docs/admin/impersonate"
+  }
+}

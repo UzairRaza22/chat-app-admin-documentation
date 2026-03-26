@@ -1,0 +1,68 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "admin/authentication",
+          "docs": [
+            {
+              "id": "admin/authentication",
+              "path": "/docs/admin/authentication",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "admin/channels",
+              "path": "/docs/admin/channels",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "admin/general",
+              "path": "/docs/admin/general",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "admin/impersonate",
+              "path": "/docs/admin/impersonate",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "admin/messages",
+              "path": "/docs/admin/messages",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "admin/teams",
+              "path": "/docs/admin/teams",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "admin/users",
+              "path": "/docs/admin/users",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "admin/workspaces",
+              "path": "/docs/admin/workspaces",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/admin/authentication",
+                "label": "admin/authentication"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}
