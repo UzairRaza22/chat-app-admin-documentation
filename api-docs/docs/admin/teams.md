@@ -14,9 +14,9 @@ http://178.104.58.236:81/api/admin/teams
 ## 🔍 Documentation Filters
 
 <div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." onkeyup="filterContent()" />
+  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
   
-  <select id="methodFilter" onchange="filterContent()">
+  <select id="methodFilter">
     <option value="">All Methods</option>
     <option value="GET">GET</option>
     <option value="POST">POST</option>
@@ -24,7 +24,7 @@ http://178.104.58.236:81/api/admin/teams
     <option value="DELETE">DELETE</option>
   </select>
   
-  <select id="categoryFilter" onchange="filterContent()">
+  <select id="categoryFilter">
     <option value="">All Categories</option>
     <option value="listing">Team Listing</option>
     <option value="management">Team Management</option>
@@ -32,7 +32,7 @@ http://178.104.58.236:81/api/admin/teams
     <option value="members">Member Management</option>
   </select>
   
-  <button onclick="clearFilters()">Clear Filters</button>
+  <button>Clear Filters</button>
 </div>
 
 <style>
@@ -70,10 +70,6 @@ http://178.104.58.236:81/api/admin/teams
   background: #fff;
 }
 
-.endpoint-item.hidden {
-  display: none;
-}
-
 .method-badge {
   display: inline-block;
   padding: 4px 8px;
@@ -87,50 +83,13 @@ http://178.104.58.236:81/api/admin/teams
 .method-post { background: #28a745; color: white; }
 .method-put { background: #ffc107; color: black; }
 .method-delete { background: #dc3545; color: white; }
-
-.searchable-content {
-  display: none;
-}
 </style>
-
-<script>
-function filterContent() {
-  const searchTerm = document.getElementById('searchFilter').value.toLowerCase();
-  const methodFilter = document.getElementById('methodFilter').value;
-  const categoryFilter = document.getElementById('categoryFilter').value;
-  
-  const endpoints = document.querySelectorAll('.endpoint-item');
-  
-  endpoints.forEach(endpoint => {
-    const text = endpoint.textContent.toLowerCase();
-    const method = endpoint.dataset.method || '';
-    const category = endpoint.dataset.category || '';
-    
-    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
-    const matchesMethod = methodFilter === '' || method === methodFilter;
-    const matchesCategory = categoryFilter === '' || category === categoryFilter;
-    
-    if (matchesSearch && matchesMethod && matchesCategory) {
-      endpoint.classList.remove('hidden');
-    } else {
-      endpoint.classList.add('hidden');
-    }
-  });
-}
-
-function clearFilters() {
-  document.getElementById('searchFilter').value = '';
-  document.getElementById('methodFilter').value = '';
-  document.getElementById('categoryFilter').value = '';
-  filterContent();
-}
-</script>
 
 ---
 
 ## Endpoints
 
-<div class="endpoint-item" data-method="GET" data-category="listing">
+<div class="endpoint-item">
 
 ### 1. List Teams
 <span class="method-badge method-get">GET</span> `/list`
@@ -163,13 +122,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: list teams, get teams, team listing, name, description, workspace_name, member_count, created_at, team data, retrieve teams
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="management">
+<div class="endpoint-item">
 
 ### 2. Create Team
 <span class="method-badge method-post">POST</span> `/create`
@@ -209,13 +164,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: create team, add team, new team, team creation, name, description, workspace_id, member_ids, team setup
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="PUT" data-category="management">
+<div class="endpoint-item">
 
 ### 3. Update Team
 <span class="method-badge method-put">PUT</span> `/update/{team_id}`
@@ -252,13 +203,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: update team, edit team, modify team, team_id, name, description, updated_at, team modification
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="DELETE" data-category="operations">
+<div class="endpoint-item">
 
 ### 4. Delete Team
 <span class="method-badge method-delete">DELETE</span> `/delete/{team_id}`
@@ -280,13 +227,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: delete team, remove team, team deletion, team_id, delete, remove, team removal
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="members">
+<div class="endpoint-item">
 
 ### 5. Team Member Management
 <span class="method-badge method-post">POST</span> `/members/{team_id}`
@@ -322,9 +265,5 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-<div class="searchable-content">
-Keywords: team members, member management, add members, remove members, user_ids, action, add, remove, role, member, leader, processed, failed, current_member_count
-</div>
 
 </div>

@@ -14,22 +14,22 @@ http://178.104.58.236:81/api/admin/impersonate
 ## 🔍 Documentation Filters
 
 <div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." onkeyup="filterContent()" />
+  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
   
-  <select id="methodFilter" onchange="filterContent()">
+  <select id="methodFilter">
     <option value="">All Methods</option>
     <option value="GET">GET</option>
     <option value="POST">POST</option>
   </select>
   
-  <select id="categoryFilter" onchange="filterContent()">
+  <select id="categoryFilter">
     <option value="">All Categories</option>
     <option value="listing">User Selection</option>
     <option value="session">Session Management</option>
     <option value="history">History & Tracking</option>
   </select>
   
-  <button onclick="clearFilters()">Clear Filters</button>
+  <button>Clear Filters</button>
 </div>
 
 <style>
@@ -67,10 +67,6 @@ http://178.104.58.236:81/api/admin/impersonate
   background: #fff;
 }
 
-.endpoint-item.hidden {
-  display: none;
-}
-
 .method-badge {
   display: inline-block;
   padding: 4px 8px;
@@ -82,50 +78,13 @@ http://178.104.58.236:81/api/admin/impersonate
 
 .method-get { background: #007bff; color: white; }
 .method-post { background: #28a745; color: white; }
-
-.searchable-content {
-  display: none;
-}
 </style>
-
-<script>
-function filterContent() {
-  const searchTerm = document.getElementById('searchFilter').value.toLowerCase();
-  const methodFilter = document.getElementById('methodFilter').value;
-  const categoryFilter = document.getElementById('categoryFilter').value;
-  
-  const endpoints = document.querySelectorAll('.endpoint-item');
-  
-  endpoints.forEach(endpoint => {
-    const text = endpoint.textContent.toLowerCase();
-    const method = endpoint.dataset.method || '';
-    const category = endpoint.dataset.category || '';
-    
-    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
-    const matchesMethod = methodFilter === '' || method === methodFilter;
-    const matchesCategory = categoryFilter === '' || category === categoryFilter;
-    
-    if (matchesSearch && matchesMethod && matchesCategory) {
-      endpoint.classList.remove('hidden');
-    } else {
-      endpoint.classList.add('hidden');
-    }
-  });
-}
-
-function clearFilters() {
-  document.getElementById('searchFilter').value = '';
-  document.getElementById('methodFilter').value = '';
-  document.getElementById('categoryFilter').value = '';
-  filterContent();
-}
-</script>
 
 ---
 
 ## Endpoints
 
-<div class="endpoint-item" data-method="GET" data-category="listing">
+<div class="endpoint-item">
 
 ### 1. List Users for Impersonation
 <span class="method-badge method-get">GET</span> `/list`
@@ -160,13 +119,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: list users, impersonation users, user selection, first_name, last_name, email, workspace_name, is_active, can_impersonate, last_login, impersonation data
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="session">
+<div class="endpoint-item">
 
 ### 2. Start Impersonation
 <span class="method-badge method-post">POST</span> `/start`
@@ -204,13 +159,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: start impersonation, impersonate user, user_id, impersonation_token, session_expires_at, impersonation session, begin impersonation
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="GET" data-category="session">
+<div class="endpoint-item">
 
 ### 3. Get Current Impersonation Info
 <span class="method-badge method-get">GET</span> `/current`
@@ -246,13 +197,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: current impersonation, impersonation info, is_impersonating, impersonated_user, started_at, expires_at, admin_user, session info, active impersonation
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="session">
+<div class="endpoint-item">
 
 ### 4. Stop Impersonation
 <span class="method-badge method-post">POST</span> `/stop`
@@ -278,13 +225,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: stop impersonation, end impersonation, session_duration, actions_performed, ended_at, terminate impersonation, finish impersonation
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="GET" data-category="history">
+<div class="endpoint-item">
 
 ### 5. Impersonation History
 <span class="method-badge method-get">GET</span> `/history`
@@ -317,9 +260,5 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-<div class="searchable-content">
-Keywords: impersonation history, session history, sessions, admin_user, impersonated_user, started_at, ended_at, duration, actions_count, impersonation log, audit trail
-</div>
 
 </div>

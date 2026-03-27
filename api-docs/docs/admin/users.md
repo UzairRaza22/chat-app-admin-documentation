@@ -14,9 +14,9 @@ http://178.104.58.236:81/api/admin/users
 ## 🔍 Documentation Filters
 
 <div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." onkeyup="filterContent()" />
+  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
   
-  <select id="methodFilter" onchange="filterContent()">
+  <select id="methodFilter">
     <option value="">All Methods</option>
     <option value="GET">GET</option>
     <option value="POST">POST</option>
@@ -24,14 +24,14 @@ http://178.104.58.236:81/api/admin/users
     <option value="DELETE">DELETE</option>
   </select>
   
-  <select id="categoryFilter" onchange="filterContent()">
+  <select id="categoryFilter">
     <option value="">All Categories</option>
     <option value="listing">User Listing</option>
     <option value="management">User Management</option>
     <option value="operations">User Operations</option>
   </select>
   
-  <button onclick="clearFilters()">Clear Filters</button>
+  <button>Clear Filters</button>
 </div>
 
 <style>
@@ -69,10 +69,6 @@ http://178.104.58.236:81/api/admin/users
   background: #fff;
 }
 
-.endpoint-item.hidden {
-  display: none;
-}
-
 .method-badge {
   display: inline-block;
   padding: 4px 8px;
@@ -86,50 +82,13 @@ http://178.104.58.236:81/api/admin/users
 .method-post { background: #28a745; color: white; }
 .method-put { background: #ffc107; color: black; }
 .method-delete { background: #dc3545; color: white; }
-
-.searchable-content {
-  display: none;
-}
 </style>
-
-<script>
-function filterContent() {
-  const searchTerm = document.getElementById('searchFilter').value.toLowerCase();
-  const methodFilter = document.getElementById('methodFilter').value;
-  const categoryFilter = document.getElementById('categoryFilter').value;
-  
-  const endpoints = document.querySelectorAll('.endpoint-item');
-  
-  endpoints.forEach(endpoint => {
-    const text = endpoint.textContent.toLowerCase();
-    const method = endpoint.dataset.method || '';
-    const category = endpoint.dataset.category || '';
-    
-    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
-    const matchesMethod = methodFilter === '' || method === methodFilter;
-    const matchesCategory = categoryFilter === '' || category === categoryFilter;
-    
-    if (matchesSearch && matchesMethod && matchesCategory) {
-      endpoint.classList.remove('hidden');
-    } else {
-      endpoint.classList.add('hidden');
-    }
-  });
-}
-
-function clearFilters() {
-  document.getElementById('searchFilter').value = '';
-  document.getElementById('methodFilter').value = '';
-  document.getElementById('categoryFilter').value = '';
-  filterContent();
-}
-</script>
 
 ---
 
 ## Endpoints
 
-<div class="endpoint-item" data-method="GET" data-category="listing">
+<div class="endpoint-item">
 
 ### 1. List Users
 <span class="method-badge method-get">GET</span> `/list`
@@ -164,13 +123,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: list users, get users, user listing, first_name, last_name, email, is_active, workspace_name, role, member, admin, guest, created_at, user data, retrieve users
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="management">
+<div class="endpoint-item">
 
 ### 2. Create User
 <span class="method-badge method-post">POST</span> `/create`
@@ -214,13 +169,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: create user, add user, new user, user creation, first_name, last_name, email, password, workspace_id, role, member, user registration, signup
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="PUT" data-category="management">
+<div class="endpoint-item">
 
 ### 3. Update User
 <span class="method-badge method-put">PUT</span> `/update/{user_id}`
@@ -261,13 +212,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: update user, edit user, modify user, user_id, first_name, last_name, is_active, role, admin, member, guest, updated_at, user modification
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="DELETE" data-category="operations">
+<div class="endpoint-item">
 
 ### 4. Delete User
 <span class="method-badge method-delete">DELETE</span> `/delete/{user_id}`
@@ -289,13 +236,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: delete user, remove user, user deletion, user_id, delete account, remove account, user removal
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="operations">
+<div class="endpoint-item">
 
 ### 5. Bulk User Operations
 <span class="method-badge method-post">POST</span> `/bulk-action`
@@ -334,9 +277,5 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-<div class="searchable-content">
-Keywords: bulk operations, bulk action, multiple users, user_ids, deactivate, activate, delete, bulk delete, bulk update, mass operations, batch operations
-</div>
 
 </div>

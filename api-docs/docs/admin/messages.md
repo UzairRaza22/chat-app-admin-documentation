@@ -14,16 +14,16 @@ http://178.104.58.236:81/api/admin/messages
 ## 🔍 Documentation Filters
 
 <div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." onkeyup="filterContent()" />
+  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
   
-  <select id="methodFilter" onchange="filterContent()">
+  <select id="methodFilter">
     <option value="">All Methods</option>
     <option value="GET">GET</option>
     <option value="POST">POST</option>
     <option value="DELETE">DELETE</option>
   </select>
   
-  <select id="categoryFilter" onchange="filterContent()">
+  <select id="categoryFilter">
     <option value="">All Categories</option>
     <option value="listing">Message Listing</option>
     <option value="operations">Message Operations</option>
@@ -31,7 +31,7 @@ http://178.104.58.236:81/api/admin/messages
     <option value="analytics">Message Analytics</option>
   </select>
   
-  <button onclick="clearFilters()">Clear Filters</button>
+  <button>Clear Filters</button>
 </div>
 
 <style>
@@ -69,10 +69,6 @@ http://178.104.58.236:81/api/admin/messages
   background: #fff;
 }
 
-.endpoint-item.hidden {
-  display: none;
-}
-
 .method-badge {
   display: inline-block;
   padding: 4px 8px;
@@ -85,50 +81,13 @@ http://178.104.58.236:81/api/admin/messages
 .method-get { background: #007bff; color: white; }
 .method-post { background: #28a745; color: white; }
 .method-delete { background: #dc3545; color: white; }
-
-.searchable-content {
-  display: none;
-}
 </style>
-
-<script>
-function filterContent() {
-  const searchTerm = document.getElementById('searchFilter').value.toLowerCase();
-  const methodFilter = document.getElementById('methodFilter').value;
-  const categoryFilter = document.getElementById('categoryFilter').value;
-  
-  const endpoints = document.querySelectorAll('.endpoint-item');
-  
-  endpoints.forEach(endpoint => {
-    const text = endpoint.textContent.toLowerCase();
-    const method = endpoint.dataset.method || '';
-    const category = endpoint.dataset.category || '';
-    
-    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
-    const matchesMethod = methodFilter === '' || method === methodFilter;
-    const matchesCategory = categoryFilter === '' || category === categoryFilter;
-    
-    if (matchesSearch && matchesMethod && matchesCategory) {
-      endpoint.classList.remove('hidden');
-    } else {
-      endpoint.classList.add('hidden');
-    }
-  });
-}
-
-function clearFilters() {
-  document.getElementById('searchFilter').value = '';
-  document.getElementById('methodFilter').value = '';
-  document.getElementById('categoryFilter').value = '';
-  filterContent();
-}
-</script>
 
 ---
 
 ## Endpoints
 
-<div class="endpoint-item" data-method="GET" data-category="listing">
+<div class="endpoint-item">
 
 ### 1. List Messages
 <span class="method-badge method-get">GET</span> `/list`
@@ -163,13 +122,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: list messages, get messages, message listing, content, user_name, channel_name, workspace_name, message_type, text, image, file, has_attachments, created_at, message data
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="GET" data-category="analytics">
+<div class="endpoint-item">
 
 ### 2. Message Statistics
 <span class="method-badge method-get">GET</span> `/statistics`
@@ -207,13 +162,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: message statistics, stats, analytics, total_messages, messages_today, messages_this_week, top_channels, top_users, channel_name, user_name, message_count, metrics
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="DELETE" data-category="operations">
+<div class="endpoint-item">
 
 ### 3. Delete Message
 <span class="method-badge method-delete">DELETE</span> `/delete/{message_id}`
@@ -235,13 +186,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: delete message, remove message, message deletion, message_id, delete, remove, message removal
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="operations">
+<div class="endpoint-item">
 
 ### 4. Bulk Delete Messages
 <span class="method-badge method-post">POST</span> `/bulk-delete`
@@ -274,13 +221,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: bulk delete, bulk operations, multiple messages, message_ids, delete_reason, spam, deleted_count, failed_count, mass delete, batch delete
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="moderation">
+<div class="endpoint-item">
 
 ### 5. Message Moderation
 <span class="method-badge method-post">POST</span> `/moderate/{message_id}`
@@ -315,9 +258,5 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-<div class="searchable-content">
-Keywords: message moderation, moderate, flag, hide, approve, action, reason, moderator_notes, inappropriate, offensive, flagged, status, moderated_at, content moderation
-</div>
 
 </div>

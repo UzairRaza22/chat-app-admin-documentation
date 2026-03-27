@@ -14,9 +14,9 @@ http://178.104.58.236:81/api/admin/channels
 ## 🔍 Documentation Filters
 
 <div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." onkeyup="filterContent()" />
+  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
   
-  <select id="methodFilter" onchange="filterContent()">
+  <select id="methodFilter">
     <option value="">All Methods</option>
     <option value="GET">GET</option>
     <option value="POST">POST</option>
@@ -24,14 +24,14 @@ http://178.104.58.236:81/api/admin/channels
     <option value="DELETE">DELETE</option>
   </select>
   
-  <select id="categoryFilter" onchange="filterContent()">
+  <select id="categoryFilter">
     <option value="">All Categories</option>
     <option value="listing">Channel Listing</option>
     <option value="management">Channel Management</option>
     <option value="operations">Channel Operations</option>
   </select>
   
-  <button onclick="clearFilters()">Clear Filters</button>
+  <button>Clear Filters</button>
 </div>
 
 <style>
@@ -69,10 +69,6 @@ http://178.104.58.236:81/api/admin/channels
   background: #fff;
 }
 
-.endpoint-item.hidden {
-  display: none;
-}
-
 .method-badge {
   display: inline-block;
   padding: 4px 8px;
@@ -86,50 +82,13 @@ http://178.104.58.236:81/api/admin/channels
 .method-post { background: #28a745; color: white; }
 .method-put { background: #ffc107; color: black; }
 .method-delete { background: #dc3545; color: white; }
-
-.searchable-content {
-  display: none;
-}
 </style>
-
-<script>
-function filterContent() {
-  const searchTerm = document.getElementById('searchFilter').value.toLowerCase();
-  const methodFilter = document.getElementById('methodFilter').value;
-  const categoryFilter = document.getElementById('categoryFilter').value;
-  
-  const endpoints = document.querySelectorAll('.endpoint-item');
-  
-  endpoints.forEach(endpoint => {
-    const text = endpoint.textContent.toLowerCase();
-    const method = endpoint.dataset.method || '';
-    const category = endpoint.dataset.category || '';
-    
-    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
-    const matchesMethod = methodFilter === '' || method === methodFilter;
-    const matchesCategory = categoryFilter === '' || category === categoryFilter;
-    
-    if (matchesSearch && matchesMethod && matchesCategory) {
-      endpoint.classList.remove('hidden');
-    } else {
-      endpoint.classList.add('hidden');
-    }
-  });
-}
-
-function clearFilters() {
-  document.getElementById('searchFilter').value = '';
-  document.getElementById('methodFilter').value = '';
-  document.getElementById('categoryFilter').value = '';
-  filterContent();
-}
-</script>
 
 ---
 
 ## Endpoints
 
-<div class="endpoint-item" data-method="GET" data-category="listing">
+<div class="endpoint-item">
 
 ### 1. List Channels
 <span class="method-badge method-get">GET</span> `/list`
@@ -163,13 +122,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: list channels, get channels, channel listing, name, description, workspace_name, is_private, private, public, member_count, created_at, channel data, retrieve channels
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="management">
+<div class="endpoint-item">
 
 ### 2. Create Channel
 <span class="method-badge method-post">POST</span> `/create`
@@ -211,13 +166,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: create channel, add channel, new channel, channel creation, name, description, workspace_id, is_private, team_ids, private channel, public channel
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="PUT" data-category="management">
+<div class="endpoint-item">
 
 ### 3. Update Channel
 <span class="method-badge method-put">PUT</span> `/update/{channel_id}`
@@ -256,13 +207,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: update channel, edit channel, modify channel, channel_id, name, description, is_private, updated_at, channel modification, change privacy
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="DELETE" data-category="operations">
+<div class="endpoint-item">
 
 ### 4. Delete Channel
 <span class="method-badge method-delete">DELETE</span> `/delete/{channel_id}`
@@ -284,13 +231,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: delete channel, remove channel, channel deletion, channel_id, delete, remove, channel removal
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="GET" data-category="operations">
+<div class="endpoint-item">
 
 ### 5. Channel Statistics
 <span class="method-badge method-get">GET</span> `/statistics/{channel_id}`
@@ -323,9 +266,5 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-<div class="searchable-content">
-Keywords: channel statistics, stats, analytics, total_messages, active_members, messages_today, messages_this_week, top_contributors, user_name, message_count, channel metrics
-</div>
 
 </div>

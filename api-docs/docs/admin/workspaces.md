@@ -14,9 +14,9 @@ http://178.104.58.236:81/api/admin/workspaces
 ## 🔍 Documentation Filters
 
 <div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." onkeyup="filterContent()" />
+  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
   
-  <select id="methodFilter" onchange="filterContent()">
+  <select id="methodFilter">
     <option value="">All Methods</option>
     <option value="GET">GET</option>
     <option value="POST">POST</option>
@@ -24,7 +24,7 @@ http://178.104.58.236:81/api/admin/workspaces
     <option value="DELETE">DELETE</option>
   </select>
   
-  <select id="categoryFilter" onchange="filterContent()">
+  <select id="categoryFilter">
     <option value="">All Categories</option>
     <option value="listing">Workspace Listing</option>
     <option value="management">Workspace Management</option>
@@ -32,7 +32,7 @@ http://178.104.58.236:81/api/admin/workspaces
     <option value="analytics">Workspace Analytics</option>
   </select>
   
-  <button onclick="clearFilters()">Clear Filters</button>
+  <button>Clear Filters</button>
 </div>
 
 <style>
@@ -70,10 +70,6 @@ http://178.104.58.236:81/api/admin/workspaces
   background: #fff;
 }
 
-.endpoint-item.hidden {
-  display: none;
-}
-
 .method-badge {
   display: inline-block;
   padding: 4px 8px;
@@ -87,50 +83,13 @@ http://178.104.58.236:81/api/admin/workspaces
 .method-post { background: #28a745; color: white; }
 .method-put { background: #ffc107; color: black; }
 .method-delete { background: #dc3545; color: white; }
-
-.searchable-content {
-  display: none;
-}
 </style>
-
-<script>
-function filterContent() {
-  const searchTerm = document.getElementById('searchFilter').value.toLowerCase();
-  const methodFilter = document.getElementById('methodFilter').value;
-  const categoryFilter = document.getElementById('categoryFilter').value;
-  
-  const endpoints = document.querySelectorAll('.endpoint-item');
-  
-  endpoints.forEach(endpoint => {
-    const text = endpoint.textContent.toLowerCase();
-    const method = endpoint.dataset.method || '';
-    const category = endpoint.dataset.category || '';
-    
-    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
-    const matchesMethod = methodFilter === '' || method === methodFilter;
-    const matchesCategory = categoryFilter === '' || category === categoryFilter;
-    
-    if (matchesSearch && matchesMethod && matchesCategory) {
-      endpoint.classList.remove('hidden');
-    } else {
-      endpoint.classList.add('hidden');
-    }
-  });
-}
-
-function clearFilters() {
-  document.getElementById('searchFilter').value = '';
-  document.getElementById('methodFilter').value = '';
-  document.getElementById('categoryFilter').value = '';
-  filterContent();
-}
-</script>
 
 ---
 
 ## Endpoints
 
-<div class="endpoint-item" data-method="GET" data-category="listing">
+<div class="endpoint-item">
 
 ### 1. List Workspaces
 <span class="method-badge method-get">GET</span> `/list`
@@ -165,13 +124,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: list workspaces, get workspaces, workspace listing, name, description, is_active, subscription_plan, pro, free, enterprise, user_count, channel_count, created_at, workspace data
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="management">
+<div class="endpoint-item">
 
 ### 2. Create Workspace
 <span class="method-badge method-post">POST</span> `/create`
@@ -212,13 +167,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: create workspace, add workspace, new workspace, workspace creation, name, description, owner_id, subscription_plan, pro, free, enterprise, workspace setup
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="PUT" data-category="management">
+<div class="endpoint-item">
 
 ### 3. Update Workspace
 <span class="method-badge method-put">PUT</span> `/update/{workspace_id}`
@@ -257,13 +208,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: update workspace, edit workspace, modify workspace, workspace_id, name, description, is_active, updated_at, workspace modification, activate, deactivate
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="DELETE" data-category="operations">
+<div class="endpoint-item">
 
 ### 4. Delete Workspace
 <span class="method-badge method-delete">DELETE</span> `/delete/{workspace_id}`
@@ -285,13 +232,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: delete workspace, remove workspace, workspace deletion, workspace_id, delete, remove, workspace removal
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="GET" data-category="analytics">
+<div class="endpoint-item">
 
 ### 5. Workspace Analytics
 <span class="method-badge method-get">GET</span> `/analytics/{workspace_id}`
@@ -322,9 +265,5 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-<div class="searchable-content">
-Keywords: workspace analytics, analytics, stats, metrics, active_users, total_messages, channels_created, user_growth, engagement_score, storage_used, storage_limit, period, 30d, 7d, 90d
-</div>
 
 </div>

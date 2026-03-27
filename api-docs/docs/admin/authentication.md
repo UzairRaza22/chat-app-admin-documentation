@@ -32,22 +32,22 @@ All responses follow this format:
 ## 🔍 Documentation Filters
 
 <div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, methods, fields..." onkeyup="filterContent()" />
+  <input type="text" id="searchFilter" placeholder="Search endpoints, methods, fields..." />
   
-  <select id="methodFilter" onchange="filterContent()">
+  <select id="methodFilter">
     <option value="">All Methods</option>
     <option value="POST">POST</option>
     <option value="GET">GET</option>
   </select>
   
-  <select id="categoryFilter" onchange="filterContent()">
+  <select id="categoryFilter">
     <option value="">All Categories</option>
     <option value="account">Account Management</option>
     <option value="session">Session Management</option>
     <option value="password">Password Recovery</option>
   </select>
   
-  <button onclick="clearFilters()">Clear Filters</button>
+  <button>Clear Filters</button>
 </div>
 
 <style>
@@ -85,10 +85,6 @@ All responses follow this format:
   background: #fff;
 }
 
-.endpoint-item.hidden {
-  display: none;
-}
-
 .method-badge {
   display: inline-block;
   padding: 4px 8px;
@@ -100,50 +96,13 @@ All responses follow this format:
 
 .method-post { background: #28a745; color: white; }
 .method-get { background: #007bff; color: white; }
-
-.searchable-content {
-  display: none;
-}
 </style>
-
-<script>
-function filterContent() {
-  const searchTerm = document.getElementById('searchFilter').value.toLowerCase();
-  const methodFilter = document.getElementById('methodFilter').value;
-  const categoryFilter = document.getElementById('categoryFilter').value;
-  
-  const endpoints = document.querySelectorAll('.endpoint-item');
-  
-  endpoints.forEach(endpoint => {
-    const text = endpoint.textContent.toLowerCase();
-    const method = endpoint.dataset.method || '';
-    const category = endpoint.dataset.category || '';
-    
-    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
-    const matchesMethod = methodFilter === '' || method === methodFilter;
-    const matchesCategory = categoryFilter === '' || category === categoryFilter;
-    
-    if (matchesSearch && matchesMethod && matchesCategory) {
-      endpoint.classList.remove('hidden');
-    } else {
-      endpoint.classList.add('hidden');
-    }
-  });
-}
-
-function clearFilters() {
-  document.getElementById('searchFilter').value = '';
-  document.getElementById('methodFilter').value = '';
-  document.getElementById('categoryFilter').value = '';
-  filterContent();
-}
-</script>
 
 ---
 
 ## Endpoints
 
-<div class="endpoint-item" data-method="POST" data-category="account">
+<div class="endpoint-item">
 
 ### 1. Admin Signup
 <span class="method-badge method-post">POST</span> `/signup`
@@ -180,13 +139,9 @@ function clearFilters() {
 }
 ```
 
-<div class="searchable-content">
-Keywords: signup, register, create account, admin registration, email verification, first_name, last_name, email, password, workspace, is_active, created_at
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="account">
+<div class="endpoint-item">
 
 ### 2. Verify Signup
 <span class="method-badge method-post">POST</span> `/verify-signup`
@@ -219,13 +174,9 @@ Keywords: signup, register, create account, admin registration, email verificati
 }
 ```
 
-<div class="searchable-content">
-Keywords: verify, verification, activate, token, email verification, account activation, is_active, admin verification
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="session">
+<div class="endpoint-item">
 
 ### 3. Admin Login
 <span class="method-badge method-post">POST</span> `/login`
@@ -259,13 +210,9 @@ Keywords: verify, verification, activate, token, email verification, account act
 }
 ```
 
-<div class="searchable-content">
-Keywords: login, authenticate, access_token, JWT, session, signin, credentials, email, password, authentication
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="session">
+<div class="endpoint-item">
 
 ### 4. Admin Logout
 <span class="method-badge method-post">POST</span> `/logout`
@@ -287,13 +234,9 @@ Authorization: Bearer {access_token}
 }
 ```
 
-<div class="searchable-content">
-Keywords: logout, signout, invalidate, session end, access_token, authorization, bearer token
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="password">
+<div class="endpoint-item">
 
 ### 5. Forgot Password
 <span class="method-badge method-post">POST</span> `/forgot-password`
@@ -317,13 +260,9 @@ Keywords: logout, signout, invalidate, session end, access_token, authorization,
 }
 ```
 
-<div class="searchable-content">
-Keywords: forgot password, password reset, reset code, email recovery, password recovery, forgot
 </div>
 
-</div>
-
-<div class="endpoint-item" data-method="POST" data-category="password">
+<div class="endpoint-item">
 
 ### 6. Reset Password
 <span class="method-badge method-post">POST</span> `/reset-password`
@@ -347,9 +286,5 @@ Keywords: forgot password, password reset, reset code, email recovery, password 
   "data": null
 }
 ```
-
-<div class="searchable-content">
-Keywords: reset password, password change, reset token, new password, password update, token verification
-</div>
 
 </div>
