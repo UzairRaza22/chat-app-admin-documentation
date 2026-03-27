@@ -11,7 +11,7 @@ http://178.104.58.236:81/api/admin/users
 
 ---
 
-## Endpoints
+## 📄 Page 1 of 2: User Listing & Management
 
 ### 1. List Users
 **GET** `/list`
@@ -133,6 +133,8 @@ Authorization: Bearer {access_token}
 
 ---
 
+## 📄 Page 2 of 2: User Operations
+
 ### 4. Delete User
 **DELETE** `/delete/{user_id}`
 
@@ -192,3 +194,7 @@ Authorization: Bearer {access_token}
   }
 }
 ```
+
+---
+
+**Navigation:** Page 1 | Page 2 (All content shown above)

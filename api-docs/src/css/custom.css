@@ -26,3 +26,60 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Search styling */
+.DocSearch-Button {
+  border-radius: 8px !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  box-shadow: none !important;
+  background: var(--ifm-background-color) !important;
+}
+
+.DocSearch-Button:hover {
+  background: var(--ifm-color-emphasis-100) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Search results highlighting */
+.search-result-match {
+  background: var(--ifm-color-primary-lightest);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* Page navigation styling */
+.pagination-nav {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.pagination-nav h2 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+}
+
+/* API endpoint styling */
+.api-endpoint {
+  border-left: 4px solid var(--ifm-color-primary);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.method-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 10px;
+  color: white;
+}
+
+.method-get { background: #007bff; }
+.method-post { background: #28a745; }
+.method-put { background: #ffc107; color: #000; }
+.method-delete { background: #dc3545; }

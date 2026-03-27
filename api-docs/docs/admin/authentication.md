@@ -29,7 +29,7 @@ All responses follow this format:
 
 ---
 
-## Endpoints
+## 📄 Page 1 of 3: Account Management
 
 ### 1. Admin Signup
 **POST** `/signup`
@@ -101,6 +101,8 @@ All responses follow this format:
 
 ---
 
+## 📄 Page 2 of 3: Session Management
+
 ### 3. Admin Login
 **POST** `/login`
 
@@ -157,6 +159,8 @@ Authorization: Bearer {access_token}
 
 ---
 
+## 📄 Page 3 of 3: Password Recovery
+
 ### 5. Forgot Password
 **POST** `/forgot-password`
 
@@ -203,3 +207,7 @@ Authorization: Bearer {access_token}
   "data": null
 }
 ```
+
+---
+
+**Navigation:** Page 1 | Page 2 | Page 3 (All content shown above)

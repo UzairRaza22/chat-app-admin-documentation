@@ -7,7 +7,7 @@ export default {
   "title": "Chat App API Documentation",
   "tagline": "Internal administrative API documentation",
   "favicon": "img/favicon.ico",
-  "url": "http://178.104.58.236:82",
+  "url": "http://178.104.58.236:81",
   "baseUrl": "/",
   "organizationName": "chat-app",
   "projectName": "chat-app-api-docs",
@@ -34,6 +34,19 @@ export default {
       }
     ]
   ],
+  "themes": [
+    [
+      "C:\\Users\\DELL\\api-docs\\node_modules\\@easyops-cn\\docusaurus-search-local\\dist\\server\\server\\index.js",
+      {
+        "hashed": true,
+        "language": [
+          "en"
+        ],
+        "highlightSearchTermsOnTargetPage": true,
+        "explicitSearchResultPath": true
+      }
+    ]
+  ],
   "themeConfig": {
     "image": "img/docusaurus-social-card.jpg",
     "colorMode": {
@@ -49,6 +62,10 @@ export default {
           "sidebarId": "tutorialSidebar",
           "position": "left",
           "label": "Admin API"
+        },
+        {
+          "type": "search",
+          "position": "right"
         }
       ],
       "hideOnScroll": false
@@ -309,7 +326,6 @@ export default {
   ],
   "customFields": {},
   "plugins": [],
-  "themes": [],
   "scripts": [],
   "headTags": [],
   "stylesheets": [],

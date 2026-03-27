@@ -46,6 +46,10 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "admin/users-management",
+              "path": "/docs/admin/users-management"
+            },
+            {
               "id": "admin/workspaces",
               "path": "/docs/admin/workspaces",
               "sidebar": "tutorialSidebar"
