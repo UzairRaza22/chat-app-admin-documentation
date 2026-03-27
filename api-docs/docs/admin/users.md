@@ -11,87 +11,10 @@ http://178.104.58.236:81/api/admin/users
 
 ---
 
-## 🔍 Documentation Filters
-
-<div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
-  
-  <select id="methodFilter">
-    <option value="">All Methods</option>
-    <option value="GET">GET</option>
-    <option value="POST">POST</option>
-    <option value="PUT">PUT</option>
-    <option value="DELETE">DELETE</option>
-  </select>
-  
-  <select id="categoryFilter">
-    <option value="">All Categories</option>
-    <option value="listing">User Listing</option>
-    <option value="management">User Management</option>
-    <option value="operations">User Operations</option>
-  </select>
-  
-  <button>Clear Filters</button>
-</div>
-
-<style>
-.filter-container {
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.filter-container input, .filter-container select {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.filter-container button {
-  padding: 8px 16px;
-  background: #007cba;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.endpoint-item {
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  margin: 15px 0;
-  padding: 20px;
-  background: #fff;
-}
-
-.method-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.method-get { background: #007bff; color: white; }
-.method-post { background: #28a745; color: white; }
-.method-put { background: #ffc107; color: black; }
-.method-delete { background: #dc3545; color: white; }
-</style>
-
----
-
 ## Endpoints
 
-<div class="endpoint-item">
-
 ### 1. List Users
-<span class="method-badge method-get">GET</span> `/list`
+**GET** `/list`
 
 **Category:** User Listing  
 **Purpose:** Retrieve users with pagination and filtering support.
@@ -123,12 +46,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 2. Create User
-<span class="method-badge method-post">POST</span> `/create`
+**POST** `/create`
 
 **Category:** User Management  
 **Purpose:** Create a new user account.
@@ -169,12 +90,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 3. Update User
-<span class="method-badge method-put">PUT</span> `/update/{user_id}`
+**PUT** `/update/{user_id}`
 
 **Category:** User Management  
 **Purpose:** Update user information.
@@ -212,12 +131,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 4. Delete User
-<span class="method-badge method-delete">DELETE</span> `/delete/{user_id}`
+**DELETE** `/delete/{user_id}`
 
 **Category:** User Operations  
 **Purpose:** Delete a user account.
@@ -236,12 +153,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 5. Bulk User Operations
-<span class="method-badge method-post">POST</span> `/bulk-action`
+**POST** `/bulk-action`
 
 **Category:** User Operations  
 **Purpose:** Perform bulk operations on multiple users.
@@ -277,5 +192,3 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-</div>

@@ -11,88 +11,10 @@ http://178.104.58.236:81/api/admin/teams
 
 ---
 
-## 🔍 Documentation Filters
-
-<div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
-  
-  <select id="methodFilter">
-    <option value="">All Methods</option>
-    <option value="GET">GET</option>
-    <option value="POST">POST</option>
-    <option value="PUT">PUT</option>
-    <option value="DELETE">DELETE</option>
-  </select>
-  
-  <select id="categoryFilter">
-    <option value="">All Categories</option>
-    <option value="listing">Team Listing</option>
-    <option value="management">Team Management</option>
-    <option value="operations">Team Operations</option>
-    <option value="members">Member Management</option>
-  </select>
-  
-  <button>Clear Filters</button>
-</div>
-
-<style>
-.filter-container {
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.filter-container input, .filter-container select {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.filter-container button {
-  padding: 8px 16px;
-  background: #007cba;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.endpoint-item {
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  margin: 15px 0;
-  padding: 20px;
-  background: #fff;
-}
-
-.method-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.method-get { background: #007bff; color: white; }
-.method-post { background: #28a745; color: white; }
-.method-put { background: #ffc107; color: black; }
-.method-delete { background: #dc3545; color: white; }
-</style>
-
----
-
 ## Endpoints
 
-<div class="endpoint-item">
-
 ### 1. List Teams
-<span class="method-badge method-get">GET</span> `/list`
+**GET** `/list`
 
 **Category:** Team Listing  
 **Purpose:** Retrieve teams with pagination and filtering support.
@@ -122,12 +44,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 2. Create Team
-<span class="method-badge method-post">POST</span> `/create`
+**POST** `/create`
 
 **Category:** Team Management  
 **Purpose:** Create a new team.
@@ -164,12 +84,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 3. Update Team
-<span class="method-badge method-put">PUT</span> `/update/{team_id}`
+**PUT** `/update/{team_id}`
 
 **Category:** Team Management  
 **Purpose:** Update team information.
@@ -203,12 +121,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 4. Delete Team
-<span class="method-badge method-delete">DELETE</span> `/delete/{team_id}`
+**DELETE** `/delete/{team_id}`
 
 **Category:** Team Operations  
 **Purpose:** Delete a team.
@@ -227,12 +143,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 5. Team Member Management
-<span class="method-badge method-post">POST</span> `/members/{team_id}`
+**POST** `/members/{team_id}`
 
 **Category:** Member Management  
 **Purpose:** Add or remove team members.
@@ -265,5 +179,3 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-</div>

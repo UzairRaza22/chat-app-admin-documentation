@@ -11,88 +11,10 @@ http://178.104.58.236:81/api/admin/workspaces
 
 ---
 
-## 🔍 Documentation Filters
-
-<div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
-  
-  <select id="methodFilter">
-    <option value="">All Methods</option>
-    <option value="GET">GET</option>
-    <option value="POST">POST</option>
-    <option value="PUT">PUT</option>
-    <option value="DELETE">DELETE</option>
-  </select>
-  
-  <select id="categoryFilter">
-    <option value="">All Categories</option>
-    <option value="listing">Workspace Listing</option>
-    <option value="management">Workspace Management</option>
-    <option value="operations">Workspace Operations</option>
-    <option value="analytics">Workspace Analytics</option>
-  </select>
-  
-  <button>Clear Filters</button>
-</div>
-
-<style>
-.filter-container {
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.filter-container input, .filter-container select {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.filter-container button {
-  padding: 8px 16px;
-  background: #007cba;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.endpoint-item {
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  margin: 15px 0;
-  padding: 20px;
-  background: #fff;
-}
-
-.method-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.method-get { background: #007bff; color: white; }
-.method-post { background: #28a745; color: white; }
-.method-put { background: #ffc107; color: black; }
-.method-delete { background: #dc3545; color: white; }
-</style>
-
----
-
 ## Endpoints
 
-<div class="endpoint-item">
-
 ### 1. List Workspaces
-<span class="method-badge method-get">GET</span> `/list`
+**GET** `/list`
 
 **Category:** Workspace Listing  
 **Purpose:** Retrieve workspaces with pagination and filtering support.
@@ -124,12 +46,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 2. Create Workspace
-<span class="method-badge method-post">POST</span> `/create`
+**POST** `/create`
 
 **Category:** Workspace Management  
 **Purpose:** Create a new workspace.
@@ -167,12 +87,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 3. Update Workspace
-<span class="method-badge method-put">PUT</span> `/update/{workspace_id}`
+**PUT** `/update/{workspace_id}`
 
 **Category:** Workspace Management  
 **Purpose:** Update workspace information.
@@ -208,12 +126,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 4. Delete Workspace
-<span class="method-badge method-delete">DELETE</span> `/delete/{workspace_id}`
+**DELETE** `/delete/{workspace_id}`
 
 **Category:** Workspace Operations  
 **Purpose:** Delete a workspace.
@@ -232,12 +148,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 5. Workspace Analytics
-<span class="method-badge method-get">GET</span> `/analytics/{workspace_id}`
+**GET** `/analytics/{workspace_id}`
 
 **Category:** Workspace Analytics  
 **Purpose:** Get detailed analytics for a workspace.
@@ -265,5 +179,3 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-</div>

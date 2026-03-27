@@ -29,83 +29,10 @@ All responses follow this format:
 
 ---
 
-## 🔍 Documentation Filters
-
-<div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, methods, fields..." />
-  
-  <select id="methodFilter">
-    <option value="">All Methods</option>
-    <option value="POST">POST</option>
-    <option value="GET">GET</option>
-  </select>
-  
-  <select id="categoryFilter">
-    <option value="">All Categories</option>
-    <option value="account">Account Management</option>
-    <option value="session">Session Management</option>
-    <option value="password">Password Recovery</option>
-  </select>
-  
-  <button>Clear Filters</button>
-</div>
-
-<style>
-.filter-container {
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.filter-container input, .filter-container select {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.filter-container button {
-  padding: 8px 16px;
-  background: #007cba;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.endpoint-item {
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  margin: 15px 0;
-  padding: 20px;
-  background: #fff;
-}
-
-.method-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.method-post { background: #28a745; color: white; }
-.method-get { background: #007bff; color: white; }
-</style>
-
----
-
 ## Endpoints
 
-<div class="endpoint-item">
-
 ### 1. Admin Signup
-<span class="method-badge method-post">POST</span> `/signup`
+**POST** `/signup`
 
 **Category:** Account Management  
 **Purpose:** Create a new admin account. A verification email will be sent.
@@ -139,12 +66,10 @@ All responses follow this format:
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 2. Verify Signup
-<span class="method-badge method-post">POST</span> `/verify-signup`
+**POST** `/verify-signup`
 
 **Category:** Account Management  
 **Purpose:** Verify admin account using the token sent to email.
@@ -174,12 +99,10 @@ All responses follow this format:
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 3. Admin Login
-<span class="method-badge method-post">POST</span> `/login`
+**POST** `/login`
 
 **Category:** Session Management  
 **Purpose:** Authenticate admin and get access token.
@@ -210,12 +133,10 @@ All responses follow this format:
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 4. Admin Logout
-<span class="method-badge method-post">POST</span> `/logout`
+**POST** `/logout`
 
 **Category:** Session Management  
 **Purpose:** Logout admin and invalidate access token.
@@ -234,12 +155,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 5. Forgot Password
-<span class="method-badge method-post">POST</span> `/forgot-password`
+**POST** `/forgot-password`
 
 **Category:** Password Recovery  
 **Purpose:** Request password reset code.
@@ -260,12 +179,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 6. Reset Password
-<span class="method-badge method-post">POST</span> `/reset-password`
+**POST** `/reset-password`
 
 **Category:** Password Recovery  
 **Purpose:** Reset password using the token sent to email.
@@ -286,5 +203,3 @@ Authorization: Bearer {access_token}
   "data": null
 }
 ```
-
-</div>

@@ -11,86 +11,10 @@ http://178.104.58.236:81/api/admin/messages
 
 ---
 
-## 🔍 Documentation Filters
-
-<div class="filter-container">
-  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." />
-  
-  <select id="methodFilter">
-    <option value="">All Methods</option>
-    <option value="GET">GET</option>
-    <option value="POST">POST</option>
-    <option value="DELETE">DELETE</option>
-  </select>
-  
-  <select id="categoryFilter">
-    <option value="">All Categories</option>
-    <option value="listing">Message Listing</option>
-    <option value="operations">Message Operations</option>
-    <option value="moderation">Message Moderation</option>
-    <option value="analytics">Message Analytics</option>
-  </select>
-  
-  <button>Clear Filters</button>
-</div>
-
-<style>
-.filter-container {
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.filter-container input, .filter-container select {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.filter-container button {
-  padding: 8px 16px;
-  background: #007cba;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.endpoint-item {
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  margin: 15px 0;
-  padding: 20px;
-  background: #fff;
-}
-
-.method-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.method-get { background: #007bff; color: white; }
-.method-post { background: #28a745; color: white; }
-.method-delete { background: #dc3545; color: white; }
-</style>
-
----
-
 ## Endpoints
 
-<div class="endpoint-item">
-
 ### 1. List Messages
-<span class="method-badge method-get">GET</span> `/list`
+**GET** `/list`
 
 **Category:** Message Listing  
 **Purpose:** Retrieve messages with pagination and filtering support.
@@ -122,12 +46,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 2. Message Statistics
-<span class="method-badge method-get">GET</span> `/statistics`
+**GET** `/statistics`
 
 **Category:** Message Analytics  
 **Purpose:** Get message statistics with filtering support.
@@ -162,12 +84,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 3. Delete Message
-<span class="method-badge method-delete">DELETE</span> `/delete/{message_id}`
+**DELETE** `/delete/{message_id}`
 
 **Category:** Message Operations  
 **Purpose:** Delete a specific message.
@@ -186,12 +106,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 4. Bulk Delete Messages
-<span class="method-badge method-post">POST</span> `/bulk-delete`
+**POST** `/bulk-delete`
 
 **Category:** Message Operations  
 **Purpose:** Delete multiple messages at once.
@@ -221,12 +139,10 @@ Authorization: Bearer {access_token}
 }
 ```
 
-</div>
-
-<div class="endpoint-item">
+---
 
 ### 5. Message Moderation
-<span class="method-badge method-post">POST</span> `/moderate/{message_id}`
+**POST** `/moderate/{message_id}`
 
 **Category:** Message Moderation  
 **Purpose:** Moderate a message (flag, hide, or approve).
@@ -258,5 +174,3 @@ Authorization: Bearer {access_token}
   }
 }
 ```
-
-</div>
