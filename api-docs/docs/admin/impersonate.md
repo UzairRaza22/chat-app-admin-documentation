@@ -9,46 +9,133 @@ sidebar_label: Impersonate
 http://178.104.58.236:81/api/admin/impersonate
 ```
 
-### 1. Read Impersonation Info
-**GET** `/read`
+---
 
-Get impersonation information and available users to impersonate with pagination and filtering support.
+## 🔍 Documentation Filters
+
+<div class="filter-container">
+  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." onkeyup="filterContent()" />
+  
+  <select id="methodFilter" onchange="filterContent()">
+    <option value="">All Methods</option>
+    <option value="GET">GET</option>
+    <option value="POST">POST</option>
+  </select>
+  
+  <select id="categoryFilter" onchange="filterContent()">
+    <option value="">All Categories</option>
+    <option value="listing">User Selection</option>
+    <option value="session">Session Management</option>
+    <option value="history">History & Tracking</option>
+  </select>
+  
+  <button onclick="clearFilters()">Clear Filters</button>
+</div>
+
+<style>
+.filter-container {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-container input, .filter-container select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.filter-container button {
+  padding: 8px 16px;
+  background: #007cba;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.endpoint-item {
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  margin: 15px 0;
+  padding: 20px;
+  background: #fff;
+}
+
+.endpoint-item.hidden {
+  display: none;
+}
+
+.method-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.method-get { background: #007bff; color: white; }
+.method-post { background: #28a745; color: white; }
+
+.searchable-content {
+  display: none;
+}
+</style>
+
+<script>
+function filterContent() {
+  const searchTerm = document.getElementById('searchFilter').value.toLowerCase();
+  const methodFilter = document.getElementById('methodFilter').value;
+  const categoryFilter = document.getElementById('categoryFilter').value;
+  
+  const endpoints = document.querySelectorAll('.endpoint-item');
+  
+  endpoints.forEach(endpoint => {
+    const text = endpoint.textContent.toLowerCase();
+    const method = endpoint.dataset.method || '';
+    const category = endpoint.dataset.category || '';
+    
+    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
+    const matchesMethod = methodFilter === '' || method === methodFilter;
+    const matchesCategory = categoryFilter === '' || category === categoryFilter;
+    
+    if (matchesSearch && matchesMethod && matchesCategory) {
+      endpoint.classList.remove('hidden');
+    } else {
+      endpoint.classList.add('hidden');
+    }
+  });
+}
+
+function clearFilters() {
+  document.getElementById('searchFilter').value = '';
+  document.getElementById('methodFilter').value = '';
+  document.getElementById('categoryFilter').value = '';
+  filterContent();
+}
+</script>
+
+---
+
+## Endpoints
+
+<div class="endpoint-item" data-method="GET" data-category="listing">
+
+### 1. List Users for Impersonation
+<span class="method-badge method-get">GET</span> `/list`
+
+**Category:** User Selection  
+**Purpose:** Get list of users available for impersonation with pagination and filtering support.
 
 **Headers:**
 ```
 Authorization: Bearer {access_token}
-```
-
-**Query Parameters:**
-
-**Pagination:**
-- `page` (optional): Page number (default: 1)
-- `limit` (optional): Items per page (default: 10, max: 100)
-
-**Filters:**
-- `user_id` (optional): Specific user ID to get info for
-- `first_name` (optional): Filter by first name (partial match)
-- `last_name` (optional): Filter by last name (partial match)
-- `email` (optional): Filter by email (partial match)
-- `is_active` (optional): Filter by active status (true/false)
-- `workspace_id` (optional): Filter by workspace ID
-- `workspace_name` (optional): Filter by workspace name (partial match)
-- `team_id` (optional): Filter by team membership
-- `team_name` (optional): Filter by team name (partial match)
-- `channel_id` (optional): Filter by channel membership
-- `channel_name` (optional): Filter by channel name (partial match)
-- `role` (optional): Filter by user role (admin, member, guest)
-- `can_impersonate` (optional): Filter by impersonation capability (true/false)
-- `last_login_from` (optional): Filter by last login after date (YYYY-MM-DD)
-- `last_login_to` (optional): Filter by last login before date (YYYY-MM-DD)
-
-**Sorting:**
-- `sort_by` (optional): Field to sort by (first_name, last_name, email, created_at)
-- `sort_order` (optional): Sort direction (asc, desc) - default: asc
-
-**Example Request:**
-```
-GET /read?page=1&limit=20&is_active=true&workspace_name=acme&team_name=development&can_impersonate=true&sort_by=first_name
 ```
 
 **Response:**
@@ -63,50 +150,115 @@ GET /read?page=1&limit=20&is_active=true&workspace_name=acme&team_name=developme
         "first_name": "Jane",
         "last_name": "Smith",
         "email": "user@example.com",
-        "workspace_id": "64a1b2c3d4e5f6789012347",
         "workspace_name": "ACME Corp",
-        "teams": [
-          {
-            "team_id": "64a1b2c3d4e5f678901234a",
-            "team_name": "Development Team"
-          }
-        ],
-        "channels": [
-          {
-            "channel_id": "64a1b2c3d4e5f6789012346",
-            "channel_name": "general"
-          }
-        ],
-        "role": "member",
         "is_active": true,
-        "last_login": "2023-07-01T10:30:00.000000Z",
-        "can_impersonate": true
+        "can_impersonate": true,
+        "last_login": "2023-07-01T10:30:00.000000Z"
       }
-    ],
-    "pagination": {
-      "current_page": 1,
-      "per_page": 20,
-      "total": 85,
-      "total_pages": 5,
-      "has_next": true,
-      "has_prev": false
+    ]
+  }
+}
+```
+
+<div class="searchable-content">
+Keywords: list users, impersonation users, user selection, first_name, last_name, email, workspace_name, is_active, can_impersonate, last_login, impersonation data
+</div>
+
+</div>
+
+<div class="endpoint-item" data-method="POST" data-category="session">
+
+### 2. Start Impersonation
+<span class="method-badge method-post">POST</span> `/start`
+
+**Category:** Session Management  
+**Purpose:** Start impersonating a specific user.
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Request Body:**
+```json
+{
+  "user_id": "64a1b2c3d4e5f6789012348"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Impersonation started successfully",
+  "data": {
+    "impersonation_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+    "user": {
+      "id": "64a1b2c3d4e5f6789012348",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "email": "user@example.com"
     },
-    "filters_applied": {
-      "is_active": true,
-      "workspace_name": "acme",
-      "team_name": "development",
-      "can_impersonate": true
+    "session_expires_at": "2023-07-01T16:00:00.000000Z"
+  }
+}
+```
+
+<div class="searchable-content">
+Keywords: start impersonation, impersonate user, user_id, impersonation_token, session_expires_at, impersonation session, begin impersonation
+</div>
+
+</div>
+
+<div class="endpoint-item" data-method="GET" data-category="session">
+
+### 3. Get Current Impersonation Info
+<span class="method-badge method-get">GET</span> `/current`
+
+**Category:** Session Management  
+**Purpose:** Get information about the current impersonation session.
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Current impersonation info retrieved successfully",
+  "data": {
+    "is_impersonating": true,
+    "impersonated_user": {
+      "id": "64a1b2c3d4e5f6789012348",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "email": "user@example.com"
+    },
+    "started_at": "2023-07-01T14:00:00.000000Z",
+    "expires_at": "2023-07-01T16:00:00.000000Z",
+    "admin_user": {
+      "id": "64a1b2c3d4e5f6789012345",
+      "email": "admin@example.com"
     }
   }
 }
 ```
 
----
+<div class="searchable-content">
+Keywords: current impersonation, impersonation info, is_impersonating, impersonated_user, started_at, expires_at, admin_user, session info, active impersonation
+</div>
 
-### 2. Stop Impersonation
-**POST** `/stop`
+</div>
 
-Stop current impersonation session.
+<div class="endpoint-item" data-method="POST" data-category="session">
+
+### 4. Stop Impersonation
+<span class="method-badge method-post">POST</span> `/stop`
+
+**Category:** Session Management  
+**Purpose:** Stop current impersonation session.
 
 **Headers:**
 ```
@@ -118,6 +270,56 @@ Authorization: Bearer {access_token}
 {
   "success": true,
   "message": "Impersonation stopped successfully",
-  "data": null
+  "data": {
+    "session_duration": "2 hours 15 minutes",
+    "actions_performed": 23,
+    "ended_at": "2023-07-01T16:15:00.000000Z"
+  }
 }
 ```
+
+<div class="searchable-content">
+Keywords: stop impersonation, end impersonation, session_duration, actions_performed, ended_at, terminate impersonation, finish impersonation
+</div>
+
+</div>
+
+<div class="endpoint-item" data-method="GET" data-category="history">
+
+### 5. Impersonation History
+<span class="method-badge method-get">GET</span> `/history`
+
+**Category:** History & Tracking  
+**Purpose:** Get history of impersonation sessions.
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Impersonation history retrieved successfully",
+  "data": {
+    "sessions": [
+      {
+        "id": "session_123",
+        "admin_user": "admin@example.com",
+        "impersonated_user": "jane@example.com",
+        "started_at": "2023-07-01T14:00:00.000000Z",
+        "ended_at": "2023-07-01T16:15:00.000000Z",
+        "duration": "2 hours 15 minutes",
+        "actions_count": 23
+      }
+    ]
+  }
+}
+```
+
+<div class="searchable-content">
+Keywords: impersonation history, session history, sessions, admin_user, impersonated_user, started_at, ended_at, duration, actions_count, impersonation log, audit trail
+</div>
+
+</div>

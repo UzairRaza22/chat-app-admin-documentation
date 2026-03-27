@@ -9,46 +9,138 @@ sidebar_label: Teams
 http://178.104.58.236:81/api/admin/teams
 ```
 
-### 1. Read Teams
-**GET** `/read`
+---
 
-Retrieve teams with pagination and filtering support.
+## 🔍 Documentation Filters
+
+<div class="filter-container">
+  <input type="text" id="searchFilter" placeholder="Search endpoints, fields, operations..." onkeyup="filterContent()" />
+  
+  <select id="methodFilter" onchange="filterContent()">
+    <option value="">All Methods</option>
+    <option value="GET">GET</option>
+    <option value="POST">POST</option>
+    <option value="PUT">PUT</option>
+    <option value="DELETE">DELETE</option>
+  </select>
+  
+  <select id="categoryFilter" onchange="filterContent()">
+    <option value="">All Categories</option>
+    <option value="listing">Team Listing</option>
+    <option value="management">Team Management</option>
+    <option value="operations">Team Operations</option>
+    <option value="members">Member Management</option>
+  </select>
+  
+  <button onclick="clearFilters()">Clear Filters</button>
+</div>
+
+<style>
+.filter-container {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-container input, .filter-container select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.filter-container button {
+  padding: 8px 16px;
+  background: #007cba;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.endpoint-item {
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  margin: 15px 0;
+  padding: 20px;
+  background: #fff;
+}
+
+.endpoint-item.hidden {
+  display: none;
+}
+
+.method-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.method-get { background: #007bff; color: white; }
+.method-post { background: #28a745; color: white; }
+.method-put { background: #ffc107; color: black; }
+.method-delete { background: #dc3545; color: white; }
+
+.searchable-content {
+  display: none;
+}
+</style>
+
+<script>
+function filterContent() {
+  const searchTerm = document.getElementById('searchFilter').value.toLowerCase();
+  const methodFilter = document.getElementById('methodFilter').value;
+  const categoryFilter = document.getElementById('categoryFilter').value;
+  
+  const endpoints = document.querySelectorAll('.endpoint-item');
+  
+  endpoints.forEach(endpoint => {
+    const text = endpoint.textContent.toLowerCase();
+    const method = endpoint.dataset.method || '';
+    const category = endpoint.dataset.category || '';
+    
+    const matchesSearch = searchTerm === '' || text.includes(searchTerm);
+    const matchesMethod = methodFilter === '' || method === methodFilter;
+    const matchesCategory = categoryFilter === '' || category === categoryFilter;
+    
+    if (matchesSearch && matchesMethod && matchesCategory) {
+      endpoint.classList.remove('hidden');
+    } else {
+      endpoint.classList.add('hidden');
+    }
+  });
+}
+
+function clearFilters() {
+  document.getElementById('searchFilter').value = '';
+  document.getElementById('methodFilter').value = '';
+  document.getElementById('categoryFilter').value = '';
+  filterContent();
+}
+</script>
+
+---
+
+## Endpoints
+
+<div class="endpoint-item" data-method="GET" data-category="listing">
+
+### 1. List Teams
+<span class="method-badge method-get">GET</span> `/list`
+
+**Category:** Team Listing  
+**Purpose:** Retrieve teams with pagination and filtering support.
 
 **Headers:**
 ```
 Authorization: Bearer {access_token}
-```
-
-**Query Parameters:**
-
-**Pagination:**
-- `page` (optional): Page number (default: 1)
-- `limit` (optional): Items per page (default: 10, max: 100)
-
-**Filters:**
-- `team_id` (optional): Specific team ID to retrieve
-- `name` (optional): Filter by team name (partial match)
-- `description` (optional): Filter by description (partial match)
-- `workspace_id` (optional): Filter by workspace ID
-- `workspace_name` (optional): Filter by workspace name (partial match)
-- `member_count_min` (optional): Filter teams with minimum member count
-- `member_count_max` (optional): Filter teams with maximum member count
-- `user_id` (optional): Filter teams that include specific user
-- `user_name` (optional): Filter teams by member name (partial match)
-- `user_email` (optional): Filter teams by member email (partial match)
-- `channel_id` (optional): Filter teams associated with specific channel
-- `channel_name` (optional): Filter teams by associated channel name (partial match)
-- `is_active` (optional): Filter by active status (true/false)
-- `created_from` (optional): Filter teams created after date (YYYY-MM-DD)
-- `created_to` (optional): Filter teams created before date (YYYY-MM-DD)
-
-**Sorting:**
-- `sort_by` (optional): Field to sort by (name, created_at, workspace_id)
-- `sort_order` (optional): Sort direction (asc, desc) - default: desc
-
-**Example Request:**
-```
-GET /read?page=1&limit=25&workspace_name=acme&user_name=jane&member_count_min=5&sort_by=name&sort_order=asc
 ```
 
 **Response:**
@@ -62,41 +154,177 @@ GET /read?page=1&limit=25&workspace_name=acme&user_name=jane&member_count_min=5&
         "id": "64a1b2c3d4e5f678901234a",
         "name": "Development Team",
         "description": "Backend development team",
-        "workspace_id": "64a1b2c3d4e5f6789012347",
         "workspace_name": "ACME Corp",
-        "is_active": true,
-        "members": [
-          {
-            "user_id": "64a1b2c3d4e5f6789012348",
-            "user_name": "Jane Smith",
-            "user_email": "jane@example.com",
-            "role": "leader"
-          }
-        ],
-        "channels": [
-          {
-            "channel_id": "64a1b2c3d4e5f6789012346",
-            "channel_name": "team-dev"
-          }
-        ],
         "member_count": 8,
-        "created_at": "2023-07-01T12:00:00.000000Z",
-        "updated_at": "2023-07-01T12:00:00.000000Z"
+        "created_at": "2023-07-01T12:00:00.000000Z"
       }
-    ],
-    "pagination": {
-      "current_page": 1,
-      "per_page": 25,
-      "total": 45,
-      "total_pages": 2,
-      "has_next": true,
-      "has_prev": false
-    },
-    "filters_applied": {
-      "workspace_name": "acme",
-      "user_name": "jane",
-      "member_count_min": 5
+    ]
+  }
+}
+```
+
+<div class="searchable-content">
+Keywords: list teams, get teams, team listing, name, description, workspace_name, member_count, created_at, team data, retrieve teams
+</div>
+
+</div>
+
+<div class="endpoint-item" data-method="POST" data-category="management">
+
+### 2. Create Team
+<span class="method-badge method-post">POST</span> `/create`
+
+**Category:** Team Management  
+**Purpose:** Create a new team.
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Request Body:**
+```json
+{
+  "name": "New Team",
+  "description": "Team description",
+  "workspace_id": "64a1b2c3d4e5f6789012347",
+  "member_ids": ["64a1b2c3d4e5f6789012348"]
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Team created successfully",
+  "data": {
+    "team": {
+      "id": "64a1b2c3d4e5f678901234a",
+      "name": "New Team",
+      "description": "Team description",
+      "workspace_id": "64a1b2c3d4e5f6789012347",
+      "created_at": "2023-07-01T12:00:00.000000Z"
     }
   }
 }
 ```
+
+<div class="searchable-content">
+Keywords: create team, add team, new team, team creation, name, description, workspace_id, member_ids, team setup
+</div>
+
+</div>
+
+<div class="endpoint-item" data-method="PUT" data-category="management">
+
+### 3. Update Team
+<span class="method-badge method-put">PUT</span> `/update/{team_id}`
+
+**Category:** Team Management  
+**Purpose:** Update team information.
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Request Body:**
+```json
+{
+  "name": "Updated Team",
+  "description": "Updated description"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Team updated successfully",
+  "data": {
+    "team": {
+      "id": "64a1b2c3d4e5f678901234a",
+      "name": "Updated Team",
+      "description": "Updated description",
+      "updated_at": "2023-07-01T12:00:00.000000Z"
+    }
+  }
+}
+```
+
+<div class="searchable-content">
+Keywords: update team, edit team, modify team, team_id, name, description, updated_at, team modification
+</div>
+
+</div>
+
+<div class="endpoint-item" data-method="DELETE" data-category="operations">
+
+### 4. Delete Team
+<span class="method-badge method-delete">DELETE</span> `/delete/{team_id}`
+
+**Category:** Team Operations  
+**Purpose:** Delete a team.
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Team deleted successfully",
+  "data": null
+}
+```
+
+<div class="searchable-content">
+Keywords: delete team, remove team, team deletion, team_id, delete, remove, team removal
+</div>
+
+</div>
+
+<div class="endpoint-item" data-method="POST" data-category="members">
+
+### 5. Team Member Management
+<span class="method-badge method-post">POST</span> `/members/{team_id}`
+
+**Category:** Member Management  
+**Purpose:** Add or remove team members.
+
+**Headers:**
+```
+Authorization: Bearer {access_token}
+```
+
+**Request Body:**
+```json
+{
+  "action": "add",
+  "user_ids": ["64a1b2c3d4e5f6789012348", "64a1b2c3d4e5f6789012349"],
+  "role": "member"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Team members updated successfully",
+  "data": {
+    "team_id": "64a1b2c3d4e5f678901234a",
+    "action": "add",
+    "processed": 2,
+    "failed": 0,
+    "current_member_count": 10
+  }
+}
+```
+
+<div class="searchable-content">
+Keywords: team members, member management, add members, remove members, user_ids, action, add, remove, role, member, leader, processed, failed, current_member_count
+</div>
+
+</div>
