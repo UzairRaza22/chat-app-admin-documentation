@@ -6,7 +6,7 @@ sidebar_label: Authentication
 
 ## Base URL
 ```
-http://178.104.58.236:83/api/admin/auth
+http://178.104.58.236:81/api/admin/auth
 ```
 
 ## Authentication
