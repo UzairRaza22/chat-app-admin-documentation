@@ -29,28 +29,29 @@ All responses follow this format:
 
 ---
 
-## 📄 Page 1 of 3: Account Management
+import Pagination from '@site/src/components/Pagination';
 
-### 1. Admin Signup
-**POST** `/signup`
-
-**Category:** Account Management  
-**Purpose:** Create a new admin account. A verification email will be sent.
-
-**Request Body:**
-```json
-{
+<Pagination pages={[
+  // Page 1: Account Management
+  <div key="page1">
+    <h2>📄 Page 1: Account Management</h2>
+    
+    <h3>1. Admin Signup</h3>
+    <p><strong>POST</strong> <code>/signup</code></p>
+    <p><strong>Category:</strong> Account Management<br/>
+    <strong>Purpose:</strong> Create a new admin account. A verification email will be sent.</p>
+    
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{`{
   "first_name": "John",
   "last_name": "Doe", 
   "email": "admin@example.com",
   "password": "password123",
   "workspace": "My Workspace"
-}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Signup successful!. Please check your email for verification link.",
   "data": {
@@ -63,27 +64,22 @@ All responses follow this format:
       "created_at": "2023-07-01T12:00:00.000000Z"
     }
   }
-}
-```
-
----
-
-### 2. Verify Signup
-**POST** `/verify-signup`
-
-**Category:** Account Management  
-**Purpose:** Verify admin account using the token sent to email.
-
-**Request Body:**
-```json
-{
+}`}</code></pre>
+    
+    <hr/>
+    
+    <h3>2. Verify Signup</h3>
+    <p><strong>POST</strong> <code>/verify-signup</code></p>
+    <p><strong>Category:</strong> Account Management<br/>
+    <strong>Purpose:</strong> Verify admin account using the token sent to email.</p>
+    
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{`{
   "token": "verification_token_here"
-}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Account activated successfully! You can now login.",
   "data": {
@@ -96,30 +92,26 @@ All responses follow this format:
       "created_at": "2023-07-01T12:00:00.000000Z"
     }
   }
-}
-```
+}`}</code></pre>
+  </div>,
 
----
-
-## 📄 Page 2 of 3: Session Management
-
-### 3. Admin Login
-**POST** `/login`
-
-**Category:** Session Management  
-**Purpose:** Authenticate admin and get access token.
-
-**Request Body:**
-```json
-{
+  // Page 2: Session Management
+  <div key="page2">
+    <h2>📄 Page 2: Session Management</h2>
+    
+    <h3>3. Admin Login</h3>
+    <p><strong>POST</strong> <code>/login</code></p>
+    <p><strong>Category:</strong> Session Management<br/>
+    <strong>Purpose:</strong> Authenticate admin and get access token.</p>
+    
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{`{
   "email": "admin@example.com",
   "password": "password123"
-}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Login successful!",
   "data": {
@@ -132,82 +124,65 @@ All responses follow this format:
       "is_active": true
     }
   }
-}
-```
-
----
-
-### 4. Admin Logout
-**POST** `/logout`
-
-**Category:** Session Management  
-**Purpose:** Logout admin and invalidate access token.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <hr/>
+    
+    <h3>4. Admin Logout</h3>
+    <p><strong>POST</strong> <code>/logout</code></p>
+    <p><strong>Category:</strong> Session Management<br/>
+    <strong>Purpose:</strong> Logout admin and invalidate access token.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Logout successful!",
   "data": null
-}
-```
+}`}</code></pre>
+  </div>,
 
----
-
-## 📄 Page 3 of 3: Password Recovery
-
-### 5. Forgot Password
-**POST** `/forgot-password`
-
-**Category:** Password Recovery  
-**Purpose:** Request password reset code.
-
-**Request Body:**
-```json
-{
+  // Page 3: Password Recovery
+  <div key="page3">
+    <h2>📄 Page 3: Password Recovery</h2>
+    
+    <h3>5. Forgot Password</h3>
+    <p><strong>POST</strong> <code>/forgot-password</code></p>
+    <p><strong>Category:</strong> Password Recovery<br/>
+    <strong>Purpose:</strong> Request password reset code.</p>
+    
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{`{
   "email": "admin@example.com"
-}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Password reset code sent to your email.",
   "data": null
-}
-```
-
----
-
-### 6. Reset Password
-**POST** `/reset-password`
-
-**Category:** Password Recovery  
-**Purpose:** Reset password using the token sent to email.
-
-**Request Body:**
-```json
-{
+}`}</code></pre>
+    
+    <hr/>
+    
+    <h3>6. Reset Password</h3>
+    <p><strong>POST</strong> <code>/reset-password</code></p>
+    <p><strong>Category:</strong> Password Recovery<br/>
+    <strong>Purpose:</strong> Reset password using the token sent to email.</p>
+    
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{`{
   "token": "reset_token_here",
   "password": "new_password123"
-}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Password reset successfully!",
   "data": null
-}
-```
-
----
-
-**Navigation:** Page 1 | Page 2 | Page 3 (All content shown above)
+}`}</code></pre>
+  </div>
+]} />
