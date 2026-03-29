@@ -11,22 +11,23 @@ http://178.104.58.236:81/api/admin/messages
 
 ---
 
-## Endpoints
+import Pagination from '@site/src/components/Pagination';
 
-### 1. List Messages
-**GET** `/list`
-
-**Category:** Message Listing  
-**Purpose:** Retrieve messages with pagination and filtering support.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Response:**
-```json
-{
+<Pagination pages={[
+  // Page 1: Message Listing & Statistics
+  <div key="page1">
+    <h2>📄 Page 1: Message Listing & Statistics</h2>
+    
+    <h3>1. List Messages</h3>
+    <p><strong>GET</strong> <code>/list</code></p>
+    <p><strong>Category:</strong> Message Listing<br/>
+    <strong>Purpose:</strong> Retrieve messages with pagination and filtering support.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Messages retrieved successfully",
   "data": {
@@ -43,25 +44,20 @@ Authorization: Bearer {access_token}
       }
     ]
   }
-}
-```
-
----
-
-### 2. Message Statistics
-**GET** `/statistics`
-
-**Category:** Message Analytics  
-**Purpose:** Get message statistics with filtering support.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <hr/>
+    
+    <h3>2. Message Statistics</h3>
+    <p><strong>GET</strong> <code>/statistics</code></p>
+    <p><strong>Category:</strong> Message Analytics<br/>
+    <strong>Purpose:</strong> Get message statistics with filtering support.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Statistics retrieved successfully",
   "data": {
@@ -81,89 +77,73 @@ Authorization: Bearer {access_token}
       }
     ]
   }
-}
-```
+}`}</code></pre>
+  </div>,
 
----
-
-### 3. Delete Message
-**DELETE** `/delete/{message_id}`
-
-**Category:** Message Operations  
-**Purpose:** Delete a specific message.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Response:**
-```json
-{
+  // Page 2: Message Operations & Moderation
+  <div key="page2">
+    <h2>📄 Page 2: Message Operations & Moderation</h2>
+    
+    <h3>3. Delete Message</h3>
+    <p><strong>DELETE</strong> <code>/delete/{`{message_id}`}</code></p>
+    <p><strong>Category:</strong> Message Operations<br/>
+    <strong>Purpose:</strong> Delete a specific message.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Message deleted successfully",
   "data": null
-}
-```
-
----
-
-### 4. Bulk Delete Messages
-**POST** `/bulk-delete`
-
-**Category:** Message Operations  
-**Purpose:** Delete multiple messages at once.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Request Body:**
-```json
-{
+}`}</code></pre>
+    
+    <hr/>
+    
+    <h3>4. Bulk Delete Messages</h3>
+    <p><strong>POST</strong> <code>/bulk-delete</code></p>
+    <p><strong>Category:</strong> Message Operations<br/>
+    <strong>Purpose:</strong> Delete multiple messages at once.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{`{
   "message_ids": ["64a1b2c3d4e5f6789012349", "64a1b2c3d4e5f678901234b"],
   "delete_reason": "Spam content"
-}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Messages deleted successfully",
   "data": {
     "deleted_count": 2,
     "failed_count": 0
   }
-}
-```
-
----
-
-### 5. Message Moderation
-**POST** `/moderate/{message_id}`
-
-**Category:** Message Moderation  
-**Purpose:** Moderate a message (flag, hide, or approve).
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Request Body:**
-```json
-{
+}`}</code></pre>
+    
+    <hr/>
+    
+    <h3>5. Message Moderation</h3>
+    <p><strong>POST</strong> <code>/moderate/{`{message_id}`}</code></p>
+    <p><strong>Category:</strong> Message Moderation<br/>
+    <strong>Purpose:</strong> Moderate a message (flag, hide, or approve).</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{`{
   "action": "flag",
   "reason": "Inappropriate content",
   "moderator_notes": "Contains offensive language"
-}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Message moderated successfully",
   "data": {
@@ -172,5 +152,6 @@ Authorization: Bearer {access_token}
     "status": "flagged",
     "moderated_at": "2023-07-01T15:30:00.000000Z"
   }
-}
-```
+}`}</code></pre>
+  </div>
+]} />

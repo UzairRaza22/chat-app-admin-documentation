@@ -11,22 +11,23 @@ http://178.104.58.236:81/api/admin/channels
 
 ---
 
-## Endpoints
+import Pagination from '@site/src/components/Pagination';
 
-### 1. List Channels
-**GET** `/list`
-
-**Category:** Channel Listing  
-**Purpose:** Retrieve channels with pagination and filtering support.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Response:**
-```json
-{
+<Pagination pages={[
+  // Page 1: Channel Listing & Management
+  <div key="page1">
+    <h2>📄 Page 1: Channel Listing & Management</h2>
+    
+    <h3>1. List Channels</h3>
+    <p><strong>GET</strong> <code>/list</code></p>
+    <p><strong>Category:</strong> Channel Listing<br/>
+    <strong>Purpose:</strong> Retrieve channels with pagination and filtering support.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Channels retrieved successfully",
   "data": {
@@ -42,36 +43,29 @@ Authorization: Bearer {access_token}
       }
     ]
   }
-}
-```
-
----
-
-### 2. Create Channel
-**POST** `/create`
-
-**Category:** Channel Management  
-**Purpose:** Create a new channel.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Request Body:**
-```json
-{
+}`}</code></pre>
+    
+    <hr/>
+    
+    <h3>2. Create Channel</h3>
+    <p><strong>POST</strong> <code>/create</code></p>
+    <p><strong>Category:</strong> Channel Management<br/>
+    <strong>Purpose:</strong> Create a new channel.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{`{
   "name": "new-channel",
   "description": "Channel description",
   "workspace_id": "64a1b2c3d4e5f6789012347",
   "is_private": false,
   "team_ids": ["64a1b2c3d4e5f678901234a"]
-}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Channel created successfully",
   "data": {
@@ -84,34 +78,27 @@ Authorization: Bearer {access_token}
       "created_at": "2023-07-01T12:00:00.000000Z"
     }
   }
-}
-```
-
----
-
-### 3. Update Channel
-**PUT** `/update/{channel_id}`
-
-**Category:** Channel Management  
-**Purpose:** Update channel information.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Request Body:**
-```json
-{
+}`}</code></pre>
+    
+    <hr/>
+    
+    <h3>3. Update Channel</h3>
+    <p><strong>PUT</strong> <code>/update/{`{channel_id}`}</code></p>
+    <p><strong>Category:</strong> Channel Management<br/>
+    <strong>Purpose:</strong> Update channel information.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Request Body:</strong></p>
+    <pre><code>{`{
   "name": "updated-channel",
   "description": "Updated description",
   "is_private": true
-}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Channel updated successfully",
   "data": {
@@ -123,47 +110,40 @@ Authorization: Bearer {access_token}
       "updated_at": "2023-07-01T12:00:00.000000Z"
     }
   }
-}
-```
+}`}</code></pre>
+  </div>,
 
----
-
-### 4. Delete Channel
-**DELETE** `/delete/{channel_id}`
-
-**Category:** Channel Operations  
-**Purpose:** Delete a channel.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Response:**
-```json
-{
+  // Page 2: Channel Operations & Statistics
+  <div key="page2">
+    <h2>📄 Page 2: Channel Operations & Statistics</h2>
+    
+    <h3>4. Delete Channel</h3>
+    <p><strong>DELETE</strong> <code>/delete/{`{channel_id}`}</code></p>
+    <p><strong>Category:</strong> Channel Operations<br/>
+    <strong>Purpose:</strong> Delete a channel.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Channel deleted successfully",
   "data": null
-}
-```
-
----
-
-### 5. Channel Statistics
-**GET** `/statistics/{channel_id}`
-
-**Category:** Channel Operations  
-**Purpose:** Get detailed statistics for a specific channel.
-
-**Headers:**
-```
-Authorization: Bearer {access_token}
-```
-
-**Response:**
-```json
-{
+}`}</code></pre>
+    
+    <hr/>
+    
+    <h3>5. Channel Statistics</h3>
+    <p><strong>GET</strong> <code>/statistics/{`{channel_id}`}</code></p>
+    <p><strong>Category:</strong> Channel Operations<br/>
+    <strong>Purpose:</strong> Get detailed statistics for a specific channel.</p>
+    
+    <p><strong>Headers:</strong></p>
+    <pre><code>Authorization: Bearer {`{access_token}`}</code></pre>
+    
+    <p><strong>Response:</strong></p>
+    <pre><code>{`{
   "success": true,
   "message": "Channel statistics retrieved successfully",
   "data": {
@@ -179,5 +159,6 @@ Authorization: Bearer {access_token}
       }
     ]
   }
-}
-```
+}`}</code></pre>
+  </div>
+]} />
