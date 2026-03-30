@@ -34,9 +34,9 @@ import Pagination from '@site/src/components/Pagination';
 <Pagination pages={[
   // Page 1: Account Management
   <div key="page1">
-    <h2>📄 Page 1: Account Management</h2>
+    <h2 id="account-management">Account Management</h2>
     
-    <h3>1. Admin Signup</h3>
+    <h3 id="admin-signup">1. Admin Signup</h3>
     <p><strong>POST</strong> <code>/signup</code></p>
     <p><strong>Category:</strong> Account Management<br/>
     <strong>Purpose:</strong> Create a new admin account. A verification email will be sent.</p>
@@ -68,7 +68,7 @@ import Pagination from '@site/src/components/Pagination';
     
     <hr/>
     
-    <h3>2. Verify Signup</h3>
+    <h3 id="verify-signup">2. Verify Signup</h3>
     <p><strong>POST</strong> <code>/verify-signup</code></p>
     <p><strong>Category:</strong> Account Management<br/>
     <strong>Purpose:</strong> Verify admin account using the token sent to email.</p>
@@ -97,9 +97,9 @@ import Pagination from '@site/src/components/Pagination';
 
   // Page 2: Session Management
   <div key="page2">
-    <h2>📄 Page 2: Session Management</h2>
+    <h2 id="session-management">Session Management</h2>
     
-    <h3>3. Admin Login</h3>
+    <h3 id="admin-login">3. Admin Login</h3>
     <p><strong>POST</strong> <code>/login</code></p>
     <p><strong>Category:</strong> Session Management<br/>
     <strong>Purpose:</strong> Authenticate admin and get access token.</p>
@@ -128,7 +128,7 @@ import Pagination from '@site/src/components/Pagination';
     
     <hr/>
     
-    <h3>4. Admin Logout</h3>
+    <h3 id="admin-logout">4. Admin Logout</h3>
     <p><strong>POST</strong> <code>/logout</code></p>
     <p><strong>Category:</strong> Session Management<br/>
     <strong>Purpose:</strong> Logout admin and invalidate access token.</p>
@@ -146,9 +146,9 @@ import Pagination from '@site/src/components/Pagination';
 
   // Page 3: Password Recovery
   <div key="page3">
-    <h2>📄 Page 3: Password Recovery</h2>
+    <h2 id="password-recovery">Password Recovery</h2>
     
-    <h3>5. Forgot Password</h3>
+    <h3 id="reset-password">5. Forgot Password</h3>
     <p><strong>POST</strong> <code>/forgot-password</code></p>
     <p><strong>Category:</strong> Password Recovery<br/>
     <strong>Purpose:</strong> Request password reset code.</p>
@@ -167,7 +167,7 @@ import Pagination from '@site/src/components/Pagination';
     
     <hr/>
     
-    <h3>6. Reset Password</h3>
+    <h3 id="reset-password">6. Reset Password</h3>
     <p><strong>POST</strong> <code>/reset-password</code></p>
     <p><strong>Category:</strong> Password Recovery<br/>
     <strong>Purpose:</strong> Reset password using the token sent to email.</p>

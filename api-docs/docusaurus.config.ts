@@ -83,6 +83,10 @@ const config: Config = {
         },
       ],
     },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4,
+    },
     footer: {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} Admin API Docs. All rights reserved.`,
