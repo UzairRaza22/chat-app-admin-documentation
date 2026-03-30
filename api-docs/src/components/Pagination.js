@@ -5,52 +5,6 @@ export default function Pagination({ pages }) {
 
   return (
     <div>
-      {/* Search/Filter Bar */}
-      <div style={{
-        background: '#f5f5f5',
-        padding: '15px',
-        borderRadius: '8px',
-        margin: '20px 0',
-        display: 'flex',
-        gap: '10px',
-        flexWrap: 'wrap'
-      }}>
-        <input 
-          type="text" 
-          placeholder="Search endpoints, methods, categories..." 
-          style={{
-            padding: '8px 12px',
-            border: '1px solid #ddd',
-            borderRadius: '4px',
-            fontSize: '14px',
-            flex: '1',
-            minWidth: '200px'
-          }}
-        />
-        <select style={{
-          padding: '8px 12px',
-          border: '1px solid #ddd',
-          borderRadius: '4px',
-          fontSize: '14px'
-        }}>
-          <option value="">All Methods</option>
-          <option value="GET">GET</option>
-          <option value="POST">POST</option>
-          <option value="PUT">PUT</option>
-          <option value="DELETE">DELETE</option>
-        </select>
-        <button style={{
-          padding: '8px 16px',
-          background: '#007cba',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer'
-        }}>
-          Clear Filters
-        </button>
-      </div>
-
       {/* Page Content */}
       <div>
         {pages[currentPage]}
