@@ -4,9 +4,9 @@ export default function Pagination({ pages }) {
   const [currentPage, setCurrentPage] = useState(0);
 
   return (
-    <div>
+    <>
       {/* Page Content */}
-      <div>
+      <div className="markdown">
         {pages[currentPage]}
       </div>
 
@@ -16,9 +16,10 @@ export default function Pagination({ pages }) {
         margin: '30px 0',
         padding: '20px',
         background: '#f8f9fa',
-        borderRadius: '8px'
+        borderRadius: '8px',
+        border: '1px solid #e1e4e8'
       }}>
-        <div style={{ marginBottom: '15px', fontSize: '16px', fontWeight: 'bold' }}>
+        <div style={{ marginBottom: '15px', fontSize: '16px', fontWeight: 'bold', color: '#1c1e21' }}>
           Page {currentPage + 1} of {pages.length}
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap' }}>
@@ -31,7 +32,8 @@ export default function Pagination({ pages }) {
               color: currentPage === 0 ? '#6c757d' : 'white',
               border: 'none',
               borderRadius: '4px',
-              cursor: currentPage === 0 ? 'not-allowed' : 'pointer'
+              cursor: currentPage === 0 ? 'not-allowed' : 'pointer',
+              fontSize: '14px'
             }}
           >
             ← Previous
@@ -48,7 +50,8 @@ export default function Pagination({ pages }) {
                 border: 'none',
                 borderRadius: '4px',
                 cursor: 'pointer',
-                minWidth: '40px'
+                minWidth: '40px',
+                fontSize: '14px'
               }}
             >
               {index + 1}
@@ -64,13 +67,14 @@ export default function Pagination({ pages }) {
               color: currentPage === pages.length - 1 ? '#6c757d' : 'white',
               border: 'none',
               borderRadius: '4px',
-              cursor: currentPage === pages.length - 1 ? 'not-allowed' : 'pointer'
+              cursor: currentPage === pages.length - 1 ? 'not-allowed' : 'pointer',
+              fontSize: '14px'
             }}
           >
             Next →
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -66,10 +66,6 @@ const config: Config = {
     },
     navbar: {
       title: 'Chat App API',
-      logo: {
-        alt: 'Chat App Logo',
-        src: 'img/logo.svg',
-      },
       items: [
         {
           type: 'docSidebar',
