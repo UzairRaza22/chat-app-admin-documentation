@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Pagination({ pages }) {
+export default function Pagination({ pages, pageNames }) {
   const [currentPage, setCurrentPage] = useState(0);
 
   return (
@@ -10,7 +10,7 @@ export default function Pagination({ pages }) {
         {pages[currentPage]}
       </div>
 
-      {/* Pagination Controls */}
+      {/* Pagination Controls - Only Previous/Next with page names */}
       <div style={{
         textAlign: 'center',
         margin: '30px 0',
@@ -19,60 +19,70 @@ export default function Pagination({ pages }) {
         borderRadius: '8px',
         border: '1px solid #e1e4e8'
       }}>
-        <div style={{ marginBottom: '15px', fontSize: '16px', fontWeight: 'bold', color: '#1c1e21' }}>
-          Page {currentPage + 1} of {pages.length}
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap' }}>
-          <button
-            onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
-            disabled={currentPage === 0}
-            style={{
-              padding: '8px 16px',
-              background: currentPage === 0 ? '#e9ecef' : '#007cba',
-              color: currentPage === 0 ? '#6c757d' : 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: currentPage === 0 ? 'not-allowed' : 'pointer',
-              fontSize: '14px'
-            }}
-          >
-            ← Previous
-          </button>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '800px', margin: '0 auto' }}>
+          <div style={{ flex: 1, textAlign: 'left' }}>
+            {currentPage > 0 && (
+              <button
+                onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
+                style={{
+                  padding: '12px 20px',
+                  background: '#007cba',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '4px'
+                }}
+              >
+                <span>← Previous</span>
+                <span style={{ fontSize: '12px', opacity: 0.9 }}>
+                  {pageNames && pageNames[currentPage - 1] ? pageNames[currentPage - 1] : `Page ${currentPage}`}
+                </span>
+              </button>
+            )}
+          </div>
           
-          {pages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(index)}
-              style={{
-                padding: '8px 12px',
-                background: currentPage === index ? '#007cba' : '#f0f0f0',
-                color: currentPage === index ? 'white' : '#333',
-                border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                minWidth: '40px',
-                fontSize: '14px'
-              }}
-            >
-              {index + 1}
-            </button>
-          ))}
+          <div style={{ 
+            fontSize: '16px', 
+            color: '#333',
+            fontWeight: '600',
+            flex: 1,
+            textAlign: 'center'
+          }}>
+            {pageNames && pageNames[currentPage] ? pageNames[currentPage] : `Page ${currentPage + 1}`}
+          </div>
           
-          <button
-            onClick={() => setCurrentPage(Math.min(pages.length - 1, currentPage + 1))}
-            disabled={currentPage === pages.length - 1}
-            style={{
-              padding: '8px 16px',
-              background: currentPage === pages.length - 1 ? '#e9ecef' : '#007cba',
-              color: currentPage === pages.length - 1 ? '#6c757d' : 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: currentPage === pages.length - 1 ? 'not-allowed' : 'pointer',
-              fontSize: '14px'
-            }}
-          >
-            Next →
-          </button>
+          <div style={{ flex: 1, textAlign: 'right' }}>
+            {currentPage < pages.length - 1 && (
+              <button
+                onClick={() => setCurrentPage(Math.min(pages.length - 1, currentPage + 1))}
+                style={{
+                  padding: '12px 20px',
+                  background: '#007cba',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '4px'
+                }}
+              >
+                <span>Next →</span>
+                <span style={{ fontSize: '12px', opacity: 0.9 }}>
+                  {pageNames && pageNames[currentPage + 1] ? pageNames[currentPage + 1] : `Page ${currentPage + 2}`}
+                </span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </>

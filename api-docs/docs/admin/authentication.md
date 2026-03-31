@@ -31,7 +31,9 @@ All responses follow this format:
 
 import Pagination from '@site/src/components/Pagination';
 
-<Pagination pages={[
+<Pagination 
+  pageNames={['Account Management', 'Session Management', 'Password Recovery']}
+  pages={[
   // Page 1: Account Management
   <div key="page1">
     <h2 id="account-management">Account Management</h2>
