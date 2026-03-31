@@ -8,6 +8,13 @@ const sidebars: SidebarsConfig = {
       label: 'Authentication',
       items: [
         'admin/authentication',
+        'admin/authentication-login',
+        'admin/authentication-logout',
+        'admin/authentication-signup',
+        'admin/authentication-verify',
+        'admin/authentication-account',
+        'admin/authentication-password',
+        'admin/authentication-sessions',
       ],
     },
     {
@@ -15,6 +22,8 @@ const sidebars: SidebarsConfig = {
       label: 'User Management',
       items: [
         'admin/users',
+        'admin/users-management',
+        'admin/users-operations',
       ],
     },
     {
@@ -22,6 +31,8 @@ const sidebars: SidebarsConfig = {
       label: 'Channel Management',
       items: [
         'admin/channels',
+        'admin/channels-operations',
+        'admin/channels-analytics',
       ],
     },
     {
@@ -29,6 +40,8 @@ const sidebars: SidebarsConfig = {
       label: 'Workspace Management',
       items: [
         'admin/workspaces',
+        'admin/workspaces-operations',
+        'admin/workspaces-analytics',
       ],
     },
     {
@@ -36,6 +49,9 @@ const sidebars: SidebarsConfig = {
       label: 'Message Management',
       items: [
         'admin/messages',
+        'admin/messages-operations',
+        'admin/messages-analytics',
+        'admin/messages-moderation',
       ],
     },
     {
@@ -43,6 +59,8 @@ const sidebars: SidebarsConfig = {
       label: 'Team Management',
       items: [
         'admin/teams',
+        'admin/teams-management',
+        'admin/teams-members',
       ],
     },
     {
@@ -50,6 +68,9 @@ const sidebars: SidebarsConfig = {
       label: 'Impersonation',
       items: [
         'admin/impersonate',
+        'admin/impersonate-users',
+        'admin/impersonate-sessions',
+        'admin/impersonate-history',
       ],
     },
     {
@@ -57,6 +78,9 @@ const sidebars: SidebarsConfig = {
       label: 'General Information',
       items: [
         'admin/general',
+        'admin/general-errors',
+        'admin/general-rate-limiting',
+        'admin/general-notes',
       ],
     },
   ],
