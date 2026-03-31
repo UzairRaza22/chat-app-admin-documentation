@@ -264,7 +264,7 @@
   color: var(--ifm-color-emphasis-500) !important;
 }
 
-/* Sidebar Navigation Styling - Improved Main Categories */
+/* Sidebar Navigation Styling - Consistent with Sub-items */
 /* Main category labels (Authentication, User Management, etc.) */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
   font-size: 0.9rem !important;
@@ -273,12 +273,12 @@
   padding: 0.5rem 0.75rem !important;
   margin: 0.25rem 0 !important;
   border-radius: 6px !important;
-  background: var(--ifm-color-emphasis-100) !important;
+  background: transparent !important;
   border-left: 2px solid transparent !important;
   transition: all 0.2s ease !important;
 }
 
-/* Main category hover effect - same as sub-items */
+/* Main category hover effect - exactly same as sub-items */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link:hover {
   background: var(--ifm-color-emphasis-200) !important;
   color: var(--ifm-color-primary-dark) !important;
