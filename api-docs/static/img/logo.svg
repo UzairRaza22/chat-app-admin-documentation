@@ -1,5 +1,23 @@
-<svg width="24" height="24" viewBox="0 0 256 218" xmlns="http://www.w3.org/2000/svg">
-  <path fill="#25c2a0" d="M128 0C57.307 0 0 57.307 0 128s57.307 128 128 128 128-57.307 128-128S198.693 0 128 0zm0 233.739c-58.13 0-105.739-47.61-105.739-105.739S69.87 22.261 128 22.261 233.739 69.87 233.739 128 186.13 233.739 128 233.739z"/>
-  <path fill="#25c2a0" d="M128 39.652c-48.726 0-88.348 39.622-88.348 88.348S79.274 216.348 128 216.348 216.348 176.726 216.348 128 176.726 39.652 128 39.652zm0 154.087c-36.266 0-65.739-29.473-65.739-65.739S91.734 62.261 128 62.261 193.739 91.734 193.739 128 164.266 193.739 128 193.739z"/>
-  <circle fill="#25c2a0" cx="128" cy="128" r="31.304"/>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Chat bubble background -->
+  <rect x="2" y="6" width="20" height="14" rx="3" ry="3" fill="#25c2a0" stroke="#1fa588" stroke-width="0.5"/>
+  
+  <!-- Chat bubble tail -->
+  <path d="M6 20 L6 24 L10 20 Z" fill="#25c2a0" stroke="#1fa588" stroke-width="0.5"/>
+  
+  <!-- Second chat bubble -->
+  <rect x="10" y="12" width="20" height="14" rx="3" ry="3" fill="#29d5b0" stroke="#25c2a0" stroke-width="0.5"/>
+  
+  <!-- Second chat bubble tail -->
+  <path d="M26 26 L26 30 L22 26 Z" fill="#29d5b0" stroke="#25c2a0" stroke-width="0.5"/>
+  
+  <!-- Chat dots in first bubble -->
+  <circle cx="8" cy="13" r="1.5" fill="white"/>
+  <circle cx="12" cy="13" r="1.5" fill="white"/>
+  <circle cx="16" cy="13" r="1.5" fill="white"/>
+  
+  <!-- Chat dots in second bubble -->
+  <circle cx="16" cy="19" r="1.5" fill="white"/>
+  <circle cx="20" cy="19" r="1.5" fill="white"/>
+  <circle cx="24" cy="19" r="1.5" fill="white"/>
 </svg>
