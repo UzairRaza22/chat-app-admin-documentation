@@ -83,3 +83,97 @@
 .method-post { background: #28a745; }
 .method-put { background: #ffc107; color: #000; }
 .method-delete { background: #dc3545; }
+
+/* Previous/Next Navigation Button Alignment */
+.pagination-nav__item {
+  flex: 1 !important;
+}
+
+.pagination-nav__item--prev {
+  text-align: left !important;
+  justify-content: flex-start !important;
+}
+
+.pagination-nav__item--next {
+  text-align: right !important;
+  justify-content: flex-end !important;
+}
+
+.pagination-nav__link {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: inherit !important;
+  padding: 1rem !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  background: var(--ifm-background-color) !important;
+  transition: all 0.2s ease !important;
+}
+
+.pagination-nav__link:hover {
+  background: var(--ifm-color-emphasis-100) !important;
+  border-color: var(--ifm-color-primary) !important;
+  text-decoration: none !important;
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.875rem !important;
+  color: var(--ifm-color-emphasis-600) !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.pagination-nav__label {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: var(--ifm-color-emphasis-900) !important;
+}
+
+/* Heading Font Size Adjustments */
+.markdown h1 {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+  color: var(--ifm-color-emphasis-900) !important;
+}
+
+.markdown h2 {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  color: var(--ifm-color-emphasis-800) !important;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200) !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.markdown h3 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+  color: var(--ifm-color-emphasis-700) !important;
+}
+
+.markdown h4 {
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+  color: var(--ifm-color-emphasis-600) !important;
+}
+
+.markdown h5 {
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.5rem !important;
+  color: var(--ifm-color-emphasis-600) !important;
+}
+
+.markdown h6 {
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.5rem !important;
+  color: var(--ifm-color-emphasis-500) !important;
+}
