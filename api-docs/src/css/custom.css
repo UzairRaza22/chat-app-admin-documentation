@@ -264,16 +264,25 @@
   color: var(--ifm-color-emphasis-500) !important;
 }
 
-/* Sidebar Navigation Styling - Reduced Sizes */
+/* Sidebar Navigation Styling - Improved Main Categories */
 /* Main category labels (Authentication, User Management, etc.) */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
-  font-size: 1rem !important;
-  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
   color: var(--ifm-color-primary) !important;
-  padding: 0.75rem 0.5rem !important;
-  margin-bottom: 0.25rem !important;
+  padding: 0.5rem 0.75rem !important;
+  margin: 0.25rem 0 !important;
   border-radius: 6px !important;
   background: var(--ifm-color-emphasis-100) !important;
+  border-left: 2px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Main category hover effect - same as sub-items */
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link:hover {
+  background: var(--ifm-color-emphasis-200) !important;
+  color: var(--ifm-color-primary-dark) !important;
+  border-left-color: var(--ifm-color-primary-light) !important;
 }
 
 /* Sub-items under each category (authentication-login, authentication-logout, etc.) */
@@ -329,19 +338,19 @@
   transform: rotate(-90deg) !important;
 }
 
-/* Category spacing */
+/* Category spacing - reduced white space */
 .theme-doc-sidebar-item-category {
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
-/* Sub-menu indentation and spacing */
+/* Sub-menu indentation and spacing - reduced */
 .theme-doc-sidebar-item-category .menu__list {
-  margin-top: 0.5rem !important;
+  margin-top: 0.25rem !important;
   padding-left: 0 !important;
 }
 
-/* Better visual separation between categories */
+/* Better visual separation between categories - reduced spacing */
 .theme-doc-sidebar-item-category:not(:last-child) {
   border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
-  padding-bottom: 1rem !important;
+  padding-bottom: 0.5rem !important;
 }
