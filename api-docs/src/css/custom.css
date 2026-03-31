@@ -305,11 +305,34 @@
   border-radius: 0 4px 4px 0 !important;
 }
 
+/* Active main category styling */
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link--active {
+  font-weight: 700 !important;
+  color: var(--ifm-color-primary-dark) !important;
+  background: var(--ifm-color-primary-lightest) !important;
+  border-left-color: var(--ifm-color-primary) !important;
+  border-radius: 0 4px 4px 0 !important;
+}
+
 /* Hover effect for sub-items */
 .theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link:hover {
   background: var(--ifm-color-emphasis-200) !important;
   color: var(--ifm-color-primary-dark) !important;
   border-left-color: var(--ifm-color-primary-light) !important;
+}
+
+/* Active item hover - lighter than regular hover */
+.theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link--active:hover {
+  background: var(--ifm-color-primary-lighter) !important;
+  color: var(--ifm-color-primary-dark) !important;
+  border-left-color: var(--ifm-color-primary-dark) !important;
+}
+
+/* Active main category hover */
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link--active:hover {
+  background: var(--ifm-color-primary-lighter) !important;
+  color: var(--ifm-color-primary-darkest) !important;
+  border-left-color: var(--ifm-color-primary-dark) !important;
 }
 
 /* Main category hover effect */
