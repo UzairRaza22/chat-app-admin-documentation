@@ -264,12 +264,12 @@
   color: var(--ifm-color-emphasis-500) !important;
 }
 
-/* Sidebar Navigation Styling - Minimal & Compact */
-/* Main category labels (Authentication, User Management, etc.) */
+/* Sidebar Navigation Styling - Normal Colors by Default */
+/* Main category labels (Authentication, User Management, etc.) - Normal Color */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
   font-size: 0.8rem !important;
   font-weight: 600 !important;
-  color: var(--ifm-color-primary) !important;
+  color: var(--ifm-color-emphasis-800) !important;
   padding: 0.25rem 0.5rem !important;
   margin: 0.1rem 0 !important;
   border-radius: 3px !important;
@@ -279,14 +279,14 @@
   line-height: 1.1 !important;
 }
 
-/* Main category hover effect - exactly same as sub-items */
+/* Main category hover effect */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link:hover {
   background: var(--ifm-color-emphasis-200) !important;
-  color: var(--ifm-color-primary-dark) !important;
-  border-left-color: var(--ifm-color-primary-light) !important;
+  color: var(--ifm-color-emphasis-900) !important;
+  border-left-color: var(--ifm-color-emphasis-400) !important;
 }
 
-/* Sub-items under each category (authentication-login, authentication-logout, etc.) */
+/* Sub-items under each category - Normal Color */
 .theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link {
   font-size: 0.75rem !important;
   font-weight: 500 !important;
@@ -298,7 +298,7 @@
   line-height: 1.1 !important;
 }
 
-/* Active sub-item styling */
+/* Active sub-item styling - Primary Color */
 .theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link--active {
   font-weight: 600 !important;
   color: var(--ifm-color-primary) !important;
@@ -307,23 +307,31 @@
   border-radius: 0 4px 4px 0 !important;
 }
 
-/* Active main category styling */
+/* When sub-item is active, make its parent main category active too */
+.theme-doc-sidebar-item-category:has(.menu__link--active) > .menu__list-item-collapsible > .menu__link {
+  color: var(--ifm-color-primary) !important;
+  font-weight: 700 !important;
+  background: var(--ifm-color-primary-lightest) !important;
+  border-left-color: var(--ifm-color-primary) !important;
+}
+
+/* Active main category styling - when directly selected */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link--active {
   font-weight: 700 !important;
-  color: var(--ifm-color-primary-dark) !important;
+  color: var(--ifm-color-primary) !important;
   background: var(--ifm-color-primary-lightest) !important;
   border-left-color: var(--ifm-color-primary) !important;
   border-radius: 0 4px 4px 0 !important;
 }
 
-/* Hover effect for sub-items */
+/* Hover effect for sub-items - Normal Colors */
 .theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link:hover {
   background: var(--ifm-color-emphasis-200) !important;
-  color: var(--ifm-color-primary-dark) !important;
-  border-left-color: var(--ifm-color-primary-light) !important;
+  color: var(--ifm-color-emphasis-900) !important;
+  border-left-color: var(--ifm-color-emphasis-400) !important;
 }
 
-/* Active item hover - lighter than regular hover */
+/* Active item hover - Primary Colors */
 .theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link--active:hover {
   background: var(--ifm-color-primary-lighter) !important;
   color: var(--ifm-color-primary-dark) !important;
