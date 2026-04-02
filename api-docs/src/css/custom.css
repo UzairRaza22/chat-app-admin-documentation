@@ -264,18 +264,19 @@
   color: var(--ifm-color-emphasis-500) !important;
 }
 
-/* Sidebar Navigation Styling - Consistent with Sub-items */
+/* Sidebar Navigation Styling - Professional & Compact */
 /* Main category labels (Authentication, User Management, etc.) */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
-  font-size: 0.9rem !important;
+  font-size: 0.85rem !important;
   font-weight: 600 !important;
   color: var(--ifm-color-primary) !important;
-  padding: 0.5rem 0.75rem !important;
-  margin: 0.25rem 0 !important;
-  border-radius: 6px !important;
+  padding: 0.4rem 0.6rem !important;
+  margin: 0.15rem 0 !important;
+  border-radius: 4px !important;
   background: transparent !important;
   border-left: 2px solid transparent !important;
   transition: all 0.2s ease !important;
+  line-height: 1.2 !important;
 }
 
 /* Main category hover effect - exactly same as sub-items */
@@ -290,10 +291,11 @@
   font-size: 0.8rem !important;
   font-weight: 500 !important;
   color: var(--ifm-color-emphasis-700) !important;
-  padding: 0.4rem 0.75rem !important;
-  margin-left: 1rem !important;
+  padding: 0.35rem 0.6rem !important;
+  margin-left: 0.8rem !important;
   border-left: 2px solid transparent !important;
   transition: all 0.2s ease !important;
+  line-height: 1.2 !important;
 }
 
 /* Active sub-item styling */
@@ -361,19 +363,19 @@
   transform: rotate(-90deg) !important;
 }
 
-/* Category spacing - reduced white space */
+/* Category spacing - compact and professional */
 .theme-doc-sidebar-item-category {
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.4rem !important;
 }
 
 /* Sub-menu indentation and spacing - reduced */
 .theme-doc-sidebar-item-category .menu__list {
-  margin-top: 0.25rem !important;
+  margin-top: 0.2rem !important;
   padding-left: 0 !important;
 }
 
-/* Better visual separation between categories - reduced spacing */
+/* Better visual separation between categories - minimal spacing */
 .theme-doc-sidebar-item-category:not(:last-child) {
   border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
-  padding-bottom: 0.5rem !important;
+  padding-bottom: 0.4rem !important;
 }
