@@ -85,46 +85,23 @@
 .method-delete { background: #dc3545; }
 
 /* Previous/Next Navigation Button Styling - Next Button Far Right */
-/* Grid layout: always 2 columns, prev=left, next=right */
+/* Layout: prev=far left, next=far right (even when alone) */
 .pagination-nav {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
+  display: flex !important;
   align-items: stretch !important;
+  justify-content: space-between !important;
   gap: 2rem !important;
   margin: 3rem 0 !important;
   padding: 0 !important;
   width: 100% !important;
 }
 
-.pagination-nav__item {
-  min-width: 0 !important;
-}
-
-/* Previous button - always occupies left column */
-.pagination-nav__item--prev {
-  grid-column: 1 !important;
-  grid-row: 1 !important;
-}
-
-/* Next button - always occupies right column, even when alone */
-.pagination-nav__item--next {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-  justify-self: stretch !important;
-}
-
-/* Text alignment */
-.pagination-nav__item--prev .pagination-nav__link {
-  text-align: left !important;
-}
-
-.pagination-nav__item--next .pagination-nav__link {
-  text-align: right !important;
-}
-
 .pagination-nav__link {
   display: flex !important;
   flex-direction: column !important;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: 48% !important;
   padding: 1.25rem 1.5rem !important;
   border-radius: 12px !important;
   border: 2px solid var(--ifm-color-emphasis-300) !important;
@@ -166,24 +143,26 @@
 }
 
 /* Previous button specific styling */
-.pagination-nav__item--prev .pagination-nav__link {
+.pagination-nav__link--prev {
+  margin-right: auto !important;
   align-items: flex-start !important;
   text-align: left !important;
 }
 
-.pagination-nav__item--prev .pagination-nav__sublabel::before {
+.pagination-nav__link--prev .pagination-nav__sublabel::before {
   content: '← ' !important;
   font-weight: bold !important;
   color: var(--ifm-color-primary) !important;
 }
 
 /* Next button specific styling */
-.pagination-nav__item--next .pagination-nav__link {
+.pagination-nav__link--next {
+  margin-left: auto !important;
   align-items: flex-end !important;
   text-align: right !important;
 }
 
-.pagination-nav__item--next .pagination-nav__sublabel::after {
+.pagination-nav__link--next .pagination-nav__sublabel::after {
   content: ' →' !important;
   font-weight: bold !important;
   color: var(--ifm-color-primary) !important;
@@ -216,16 +195,18 @@
     flex-direction: column !important;
     gap: 1rem !important;
   }
-  
-  .pagination-nav__item {
+
+  .pagination-nav__link {
     max-width: 100% !important;
     min-width: auto !important;
   }
-  
-  .pagination-nav__item--prev .pagination-nav__link,
-  .pagination-nav__item--next .pagination-nav__link {
+
+  .pagination-nav__link--prev,
+  .pagination-nav__link--next {
     align-items: center !important;
     text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
