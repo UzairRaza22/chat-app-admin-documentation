@@ -84,15 +84,15 @@
 .method-put { background: #ffc107; color: #000; }
 .method-delete { background: #dc3545; }
 
-/* Previous/Next Navigation Button Styling */
+/* Previous/Next Navigation Button Styling - Complete Solution */
 .pagination-nav {
   display: flex !important;
   justify-content: space-between !important;
   align-items: stretch !important;
+  gap: 2rem !important;
   margin: 3rem 0 !important;
   padding: 0 !important;
   width: 100% !important;
-  position: relative !important;
 }
 
 .pagination-nav__item {
@@ -101,34 +101,46 @@
   min-width: 200px !important;
 }
 
-/* Previous button - far left */
+/* Previous button - normal positioning */
 .pagination-nav__item--prev {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
+  align-self: flex-start !important;
 }
 
-/* Next button - far right */
+/* Next button - normal positioning */
 .pagination-nav__item--next {
-  position: absolute !important;
-  right: 0 !important;
-  top: 0 !important;
+  align-self: flex-end !important;
+  margin-left: auto !important;
 }
 
-/* When only Next button exists (first page), force it to right */
-.pagination-nav .pagination-nav__item--next:only-child {
-  position: absolute !important;
-  right: 0 !important;
-  left: auto !important;
-  margin-left: 0 !important;
+/* CRITICAL: Force single Next button to right side */
+.pagination-nav:not(:has(.pagination-nav__item--prev)) {
+  justify-content: flex-end !important;
 }
 
-/* Ensure proper height for absolute positioned items */
-.pagination-nav {
-  min-height: 80px !important;
+/* Alternative for browsers without :has() support */
+.pagination-nav .pagination-nav__item--next:first-child {
+  margin-left: auto !important;
+  align-self: flex-end !important;
 }
 
-/* Button content alignment */
+/* Force Next button to right when it's the only child */
+.pagination-nav__item--next:only-child {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+/* Ensure container pushes single button to right */
+.pagination-nav:has(.pagination-nav__item--next:only-child) {
+  justify-content: flex-end !important;
+}
+
+/* Fallback: Target single item in container */
+.pagination-nav .pagination-nav__item:only-child {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+/* Text alignment */
 .pagination-nav__item--prev .pagination-nav__link {
   text-align: left !important;
 }
