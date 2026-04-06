@@ -84,7 +84,7 @@
 .method-put { background: #ffc107; color: #000; }
 .method-delete { background: #dc3545; }
 
-/* Previous/Next Navigation Button Styling - Complete Solution */
+/* Previous/Next Navigation Button Styling - Next Button Far Right */
 .pagination-nav {
   display: flex !important;
   justify-content: space-between !important;
@@ -101,43 +101,24 @@
   min-width: 200px !important;
 }
 
-/* Previous button - normal positioning */
+/* Previous button - stays on left */
 .pagination-nav__item--prev {
   align-self: flex-start !important;
 }
 
-/* Next button - normal positioning */
+/* Next button - ALWAYS far right on ALL pages */
 .pagination-nav__item--next {
   align-self: flex-end !important;
   margin-left: auto !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
 }
 
-/* CRITICAL: Force single Next button to right side */
-.pagination-nav:not(:has(.pagination-nav__item--prev)) {
-  justify-content: flex-end !important;
-}
-
-/* Alternative for browsers without :has() support */
-.pagination-nav .pagination-nav__item--next:first-child {
-  margin-left: auto !important;
-  align-self: flex-end !important;
-}
-
-/* Force Next button to right when it's the only child */
-.pagination-nav__item--next:only-child {
-  margin-left: auto !important;
-  margin-right: 0 !important;
-}
-
-/* Ensure container pushes single button to right */
-.pagination-nav:has(.pagination-nav__item--next:only-child) {
-  justify-content: flex-end !important;
-}
-
-/* Fallback: Target single item in container */
-.pagination-nav .pagination-nav__item:only-child {
-  margin-left: auto !important;
-  margin-right: 0 !important;
+/* Ensure pagination container has proper positioning context */
+.pagination-nav {
+  position: relative !important;
+  min-height: 80px !important;
 }
 
 /* Text alignment */
