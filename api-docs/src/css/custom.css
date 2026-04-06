@@ -92,6 +92,7 @@
   gap: 2rem !important;
   margin: 3rem 0 !important;
   padding: 0 !important;
+  width: 100% !important;
 }
 
 .pagination-nav__item {
@@ -102,11 +103,21 @@
 
 .pagination-nav__item--prev {
   align-self: flex-start !important;
+  margin-right: auto !important;
 }
 
 .pagination-nav__item--next {
   align-self: flex-end !important;
   margin-left: auto !important;
+}
+
+/* Ensure buttons are at corners when both exist */
+.pagination-nav__item--prev .pagination-nav__link {
+  text-align: left !important;
+}
+
+.pagination-nav__item--next .pagination-nav__link {
+  text-align: right !important;
 }
 
 .pagination-nav__link {

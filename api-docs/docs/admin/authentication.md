@@ -53,4 +53,4 @@ All authentication endpoints use the base URL: `http://178.104.58.236:81/api/adm
 - `POST /login` - Admin login
 - `POST /logout` - Admin logout
 - `POST /forgot-password` - Request password reset
-- `POST /reset-password` - Reset passwordgit 
+- `POST /reset-password` - Reset password
