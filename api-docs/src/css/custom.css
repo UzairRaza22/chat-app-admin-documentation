@@ -87,12 +87,13 @@
 /* Previous/Next Navigation Button Styling */
 .pagination-nav {
   display: flex !important;
-  justify-content: space-between !important;
+  justify-content: flex-start !important;
   align-items: stretch !important;
   gap: 2rem !important;
   margin: 3rem 0 !important;
   padding: 0 !important;
   min-height: 60px !important;
+  position: relative !important;
 }
 
 .pagination-nav__item {
@@ -102,32 +103,23 @@
 }
 
 .pagination-nav__item--prev {
-  align-self: flex-start !important;
-  order: 1 !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
 }
 
 .pagination-nav__item--next {
-  align-self: flex-end !important;
-  margin-left: auto !important;
-  order: 2 !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
 }
 
-/* Force Next button to right side when no Previous button exists */
-.pagination-nav__item--next:only-child {
-  margin-left: auto !important;
-  align-self: flex-end !important;
-  justify-self: flex-end !important;
-}
-
-/* Ensure proper flex behavior for single button */
-.pagination-nav:has(.pagination-nav__item--next:only-child) {
-  justify-content: flex-end !important;
-}
-
-/* Alternative approach for browsers that don't support :has() */
-.pagination-nav .pagination-nav__item:last-child:nth-child(1) {
-  margin-left: auto !important;
-  align-self: flex-end !important;
+/* Ensure Next button is always on the right, even when alone */
+.pagination-nav .pagination-nav__item--next {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  left: auto !important;
+  right: 0 !important;
 }
 
 .pagination-nav__link {
