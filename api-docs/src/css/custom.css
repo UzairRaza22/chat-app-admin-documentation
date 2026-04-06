@@ -92,6 +92,7 @@
   gap: 2rem !important;
   margin: 3rem 0 !important;
   padding: 0 !important;
+  min-height: 60px !important;
 }
 
 .pagination-nav__item {
@@ -113,6 +114,18 @@
 
 /* Force Next button to right side when no Previous button exists */
 .pagination-nav__item--next:only-child {
+  margin-left: auto !important;
+  align-self: flex-end !important;
+  justify-self: flex-end !important;
+}
+
+/* Ensure proper flex behavior for single button */
+.pagination-nav:has(.pagination-nav__item--next:only-child) {
+  justify-content: flex-end !important;
+}
+
+/* Alternative approach for browsers that don't support :has() */
+.pagination-nav .pagination-nav__item:last-child:nth-child(1) {
   margin-left: auto !important;
   align-self: flex-end !important;
 }
