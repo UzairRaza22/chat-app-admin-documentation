@@ -106,6 +106,7 @@
 
 .pagination-nav__item--next {
   align-self: flex-end !important;
+  margin-left: auto !important;
 }
 
 .pagination-nav__link {
