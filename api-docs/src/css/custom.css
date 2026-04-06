@@ -87,13 +87,15 @@
 /* Previous/Next Navigation Button Styling - Next Button Far Right */
 .pagination-nav {
   display: flex !important;
-  justify-content: flex-end !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
   align-items: stretch !important;
   gap: 2rem !important;
   margin: 3rem 0 !important;
   padding: 0 !important;
   width: 100% !important;
   position: relative !important;
+  min-height: 80px !important;
 }
  
 .pagination-nav__item {
@@ -108,10 +110,11 @@
   margin-left: 0 !important;
 }
  
-/* Next button - ALWAYS far right on ALL pages, including when it's the only button */
+/* Next button - ALWAYS far right on ALL pages including first page (solo button) */
 .pagination-nav__item--next {
-  margin-left: auto !important;
-  margin-right: 0 !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
 }
  
 /* Text alignment */
@@ -402,4 +405,3 @@
   border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
   padding-bottom: 0.2rem !important;
 }
- 
