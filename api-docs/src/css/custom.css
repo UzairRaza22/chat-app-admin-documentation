@@ -89,10 +89,10 @@
   display: flex !important;
   justify-content: space-between !important;
   align-items: stretch !important;
-  gap: 2rem !important;
   margin: 3rem 0 !important;
   padding: 0 !important;
   width: 100% !important;
+  position: relative !important;
 }
 
 .pagination-nav__item {
@@ -101,17 +101,34 @@
   min-width: 200px !important;
 }
 
+/* Previous button - far left */
 .pagination-nav__item--prev {
-  align-self: flex-start !important;
-  margin-right: auto !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
 }
 
+/* Next button - far right */
 .pagination-nav__item--next {
-  align-self: flex-end !important;
-  margin-left: auto !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
 }
 
-/* Ensure buttons are at corners when both exist */
+/* When only Next button exists (first page), force it to right */
+.pagination-nav .pagination-nav__item--next:only-child {
+  position: absolute !important;
+  right: 0 !important;
+  left: auto !important;
+  margin-left: 0 !important;
+}
+
+/* Ensure proper height for absolute positioned items */
+.pagination-nav {
+  min-height: 80px !important;
+}
+
+/* Button content alignment */
 .pagination-nav__item--prev .pagination-nav__link {
   text-align: left !important;
 }
