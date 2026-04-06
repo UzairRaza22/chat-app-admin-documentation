@@ -106,13 +106,21 @@
   align-self: flex-start !important;
 }
 
-/* Next button - ALWAYS far right on ALL pages */
+/* Next button - ALWAYS far right on ALL pages - RED FOR TESTING */
 .pagination-nav__item--next {
   align-self: flex-end !important;
   margin-left: auto !important;
   position: absolute !important;
   right: 0 !important;
   top: 0 !important;
+}
+
+/* RED COLOR FOR TESTING - Next button */
+.pagination-nav__item--next .pagination-nav__link {
+  background: red !important;
+  color: white !important;
+  border: 2px solid darkred !important;
+  text-align: right !important;
 }
 
 /* Ensure pagination container has proper positioning context */
@@ -124,10 +132,6 @@
 /* Text alignment */
 .pagination-nav__item--prev .pagination-nav__link {
   text-align: left !important;
-}
-
-.pagination-nav__item--next .pagination-nav__link {
-  text-align: right !important;
 }
 
 .pagination-nav__link {
