@@ -1,7 +1,7 @@
 /**
  * Any CSS included here will be global. The original file was missing.
  */
-
+ 
 :root {
   --ifm-color-primary: #2563eb;
   --ifm-color-primary-dark: #1d4ed8;
@@ -15,7 +15,7 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
-
+ 
 [data-theme='dark'] {
   --ifm-color-primary: #60a5fa;
   --ifm-color-primary-dark: #3b82f6;
@@ -26,7 +26,7 @@
   --ifm-color-primary-lightest: #1e3a8a;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
-
+ 
 /* Search styling */
 .DocSearch-Button {
   border-radius: 8px !important;
@@ -34,12 +34,12 @@
   box-shadow: none !important;
   background: var(--ifm-background-color) !important;
 }
-
+ 
 .DocSearch-Button:hover {
   background: var(--ifm-color-emphasis-100) !important;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
 }
-
+ 
 /* Search results highlighting */
 .search-result-match {
   background: var(--ifm-color-primary-lightest);
@@ -47,7 +47,7 @@
   border-radius: 3px;
   font-weight: 600;
 }
-
+ 
 /* Page navigation styling */
 .pagination-nav {
   margin: 2rem 0;
@@ -56,19 +56,19 @@
   border-radius: 8px;
   text-align: center;
 }
-
+ 
 .pagination-nav h2 {
   color: var(--ifm-color-primary);
   margin-bottom: 1rem;
 }
-
+ 
 /* API endpoint styling */
 .api-endpoint {
   border-left: 4px solid var(--ifm-color-primary);
   padding-left: 1rem;
   margin: 1rem 0;
 }
-
+ 
 .method-badge {
   display: inline-block;
   padding: 4px 8px;
@@ -78,53 +78,51 @@
   margin-right: 10px;
   color: white;
 }
-
+ 
 .method-get { background: #007bff; }
 .method-post { background: #28a745; }
 .method-put { background: #ffc107; color: #000; }
 .method-delete { background: #dc3545; }
-
+ 
 /* Previous/Next Navigation Button Styling - Next Button Far Right */
 .pagination-nav {
   display: flex !important;
-  justify-content: space-between !important;
+  justify-content: flex-end !important;
   align-items: stretch !important;
   gap: 2rem !important;
   margin: 3rem 0 !important;
   padding: 0 !important;
   width: 100% !important;
+  position: relative !important;
 }
-
+ 
 .pagination-nav__item {
   flex: 0 0 auto !important;
   max-width: 45% !important;
   min-width: 200px !important;
 }
-
-/* Previous button - stays on left */
+ 
+/* Previous button - pinned to left */
 .pagination-nav__item--prev {
   margin-right: auto !important;
+  margin-left: 0 !important;
 }
-
-/* Next button - ALWAYS far right on ALL pages */
+ 
+/* Next button - ALWAYS far right on ALL pages, including when it's the only button */
 .pagination-nav__item--next {
   margin-left: auto !important;
+  margin-right: 0 !important;
 }
-
-/* Ensure pagination container has proper positioning context */
-.pagination-nav {
-  position: relative !important;
-}
-
+ 
 /* Text alignment */
 .pagination-nav__item--prev .pagination-nav__link {
   text-align: left !important;
 }
-
+ 
 .pagination-nav__item--next .pagination-nav__link {
   text-align: right !important;
 }
-
+ 
 .pagination-nav__link {
   display: flex !important;
   flex-direction: column !important;
@@ -138,7 +136,7 @@
   position: relative !important;
   overflow: hidden !important;
 }
-
+ 
 .pagination-nav__link::before {
   content: '' !important;
   position: absolute !important;
@@ -151,47 +149,47 @@
   transition: opacity 0.3s ease !important;
   z-index: 0 !important;
 }
-
+ 
 .pagination-nav__link:hover::before {
   opacity: 0.1 !important;
 }
-
+ 
 .pagination-nav__link:hover {
   transform: translateY(-2px) !important;
   border-color: var(--ifm-color-primary) !important;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
   text-decoration: none !important;
 }
-
+ 
 .pagination-nav__link:active {
   transform: translateY(0) !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
-
+ 
 /* Previous button specific styling */
 .pagination-nav__item--prev .pagination-nav__link {
   align-items: flex-start !important;
   text-align: left !important;
 }
-
+ 
 .pagination-nav__item--prev .pagination-nav__sublabel::before {
   content: '← ' !important;
   font-weight: bold !important;
   color: var(--ifm-color-primary) !important;
 }
-
+ 
 /* Next button specific styling */
 .pagination-nav__item--next .pagination-nav__link {
   align-items: flex-end !important;
   text-align: right !important;
 }
-
+ 
 .pagination-nav__item--next .pagination-nav__sublabel::after {
   content: ' →' !important;
   font-weight: bold !important;
   color: var(--ifm-color-primary) !important;
 }
-
+ 
 .pagination-nav__sublabel {
   font-size: 0.75rem !important;
   font-weight: 600 !important;
@@ -202,7 +200,7 @@
   position: relative !important;
   z-index: 1 !important;
 }
-
+ 
 .pagination-nav__label {
   font-size: 0.95rem !important;
   font-weight: 600 !important;
@@ -211,7 +209,7 @@
   position: relative !important;
   z-index: 1 !important;
 }
-
+ 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .pagination-nav {
@@ -230,7 +228,7 @@
     text-align: center !important;
   }
 }
-
+ 
 /* Heading Font Size Adjustments - Reverted to Normal Sizes */
 .markdown h1 {
   font-size: 2rem !important;
@@ -238,7 +236,7 @@
   margin-bottom: 1.5rem !important;
   color: var(--ifm-color-emphasis-900) !important;
 }
-
+ 
 .markdown h2 {
   font-size: 1.5rem !important;
   font-weight: 600 !important;
@@ -248,7 +246,7 @@
   border-bottom: 2px solid var(--ifm-color-emphasis-200) !important;
   padding-bottom: 0.5rem !important;
 }
-
+ 
 .markdown h3 {
   font-size: 1.25rem !important;
   font-weight: 600 !important;
@@ -256,7 +254,7 @@
   margin-bottom: 0.75rem !important;
   color: var(--ifm-color-emphasis-700) !important;
 }
-
+ 
 .markdown h4 {
   font-size: 1.1rem !important;
   font-weight: 500 !important;
@@ -264,7 +262,7 @@
   margin-bottom: 0.5rem !important;
   color: var(--ifm-color-emphasis-600) !important;
 }
-
+ 
 .markdown h5 {
   font-size: 1rem !important;
   font-weight: 500 !important;
@@ -272,7 +270,7 @@
   margin-bottom: 0.5rem !important;
   color: var(--ifm-color-emphasis-600) !important;
 }
-
+ 
 .markdown h6 {
   font-size: 0.9rem !important;
   font-weight: 500 !important;
@@ -280,7 +278,7 @@
   margin-bottom: 0.5rem !important;
   color: var(--ifm-color-emphasis-500) !important;
 }
-
+ 
 /* Sidebar Navigation Styling - Normal Colors by Default */
 /* Main category labels (Authentication, User Management, etc.) - Normal Color */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
@@ -295,14 +293,14 @@
   transition: all 0.2s ease !important;
   line-height: 1.1 !important;
 }
-
+ 
 /* Main category hover effect */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link:hover {
   background: var(--ifm-color-emphasis-200) !important;
   color: var(--ifm-color-emphasis-900) !important;
   border-left-color: var(--ifm-color-emphasis-400) !important;
 }
-
+ 
 /* Sub-items under each category - Normal Color */
 .theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link {
   font-size: 0.75rem !important;
@@ -314,7 +312,7 @@
   transition: all 0.2s ease !important;
   line-height: 1.1 !important;
 }
-
+ 
 /* Active sub-item styling - Primary Color */
 .theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link--active {
   font-weight: 600 !important;
@@ -323,7 +321,7 @@
   border-left-color: var(--ifm-color-primary) !important;
   border-radius: 0 4px 4px 0 !important;
 }
-
+ 
 /* When sub-item is active, make its parent main category active too */
 .theme-doc-sidebar-item-category:has(.menu__link--active) > .menu__list-item-collapsible > .menu__link {
   color: var(--ifm-color-primary) !important;
@@ -331,7 +329,7 @@
   background: var(--ifm-color-primary-lightest) !important;
   border-left-color: var(--ifm-color-primary) !important;
 }
-
+ 
 /* Active main category styling - when directly selected */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link--active {
   font-weight: 700 !important;
@@ -340,34 +338,34 @@
   border-left-color: var(--ifm-color-primary) !important;
   border-radius: 0 4px 4px 0 !important;
 }
-
+ 
 /* Hover effect for sub-items - Normal Colors */
 .theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link:hover {
   background: var(--ifm-color-emphasis-200) !important;
   color: var(--ifm-color-emphasis-900) !important;
   border-left-color: var(--ifm-color-emphasis-400) !important;
 }
-
+ 
 /* Active item hover - Primary Colors */
 .theme-doc-sidebar-item-category .menu__list .menu__list-item .menu__link--active:hover {
   background: var(--ifm-color-primary-lighter) !important;
   color: var(--ifm-color-primary-dark) !important;
   border-left-color: var(--ifm-color-primary-dark) !important;
 }
-
+ 
 /* Active main category hover */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link--active:hover {
   background: var(--ifm-color-primary-lighter) !important;
   color: var(--ifm-color-primary-darkest) !important;
   border-left-color: var(--ifm-color-primary-dark) !important;
 }
-
+ 
 /* Main category hover effect */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link:hover {
   background: var(--ifm-color-primary-lightest) !important;
   color: var(--ifm-color-primary-dark) !important;
 }
-
+ 
 /* Intro page styling */
 .menu__list-item .menu__link[href="/"] {
   font-size: 1.05rem !important;
@@ -377,30 +375,31 @@
   margin-bottom: 1rem !important;
   border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
 }
-
+ 
 /* Collapsed/Expanded category arrow styling */
 .menu__caret {
   transform: rotate(0deg) !important;
   transition: transform 0.2s ease !important;
 }
-
+ 
 .menu__list-item--collapsed .menu__caret {
   transform: rotate(-90deg) !important;
 }
-
+ 
 /* Category spacing - minimal and tight */
 .theme-doc-sidebar-item-category {
   margin-bottom: 0.2rem !important;
 }
-
+ 
 /* Sub-menu indentation and spacing - minimal */
 .theme-doc-sidebar-item-category .menu__list {
   margin-top: 0.1rem !important;
   padding-left: 0 !important;
 }
-
+ 
 /* Better visual separation between categories - minimal spacing */
 .theme-doc-sidebar-item-category:not(:last-child) {
   border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
   padding-bottom: 0.2rem !important;
 }
+ 
