@@ -87,13 +87,11 @@
 /* Previous/Next Navigation Button Styling */
 .pagination-nav {
   display: flex !important;
-  justify-content: flex-start !important;
+  justify-content: space-between !important;
   align-items: stretch !important;
   gap: 2rem !important;
   margin: 3rem 0 !important;
   padding: 0 !important;
-  min-height: 60px !important;
-  position: relative !important;
 }
 
 .pagination-nav__item {
@@ -103,23 +101,11 @@
 }
 
 .pagination-nav__item--prev {
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
+  align-self: flex-start !important;
 }
 
 .pagination-nav__item--next {
-  position: absolute !important;
-  right: 0 !important;
-  top: 0 !important;
-}
-
-/* Ensure Next button is always on the right, even when alone */
-.pagination-nav .pagination-nav__item--next {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  left: auto !important;
-  right: 0 !important;
+  align-self: flex-end !important;
 }
 
 .pagination-nav__link {
