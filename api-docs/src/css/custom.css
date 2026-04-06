@@ -103,22 +103,17 @@
 
 /* Previous button - stays on left */
 .pagination-nav__item--prev {
-  align-self: flex-start !important;
+  margin-right: auto !important;
 }
 
 /* Next button - ALWAYS far right on ALL pages */
 .pagination-nav__item--next {
-  align-self: flex-end !important;
   margin-left: auto !important;
-  position: absolute !important;
-  right: 0 !important;
-  top: 0 !important;
 }
 
 /* Ensure pagination container has proper positioning context */
 .pagination-nav {
   position: relative !important;
-  min-height: 80px !important;
 }
 
 /* Text alignment */
