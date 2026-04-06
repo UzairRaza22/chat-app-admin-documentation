@@ -102,9 +102,18 @@
 
 .pagination-nav__item--prev {
   align-self: flex-start !important;
+  order: 1 !important;
 }
 
 .pagination-nav__item--next {
+  align-self: flex-end !important;
+  margin-left: auto !important;
+  order: 2 !important;
+}
+
+/* Force Next button to right side when no Previous button exists */
+.pagination-nav__item--next:only-child {
+  margin-left: auto !important;
   align-self: flex-end !important;
 }
 
